@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Displays</title>
+	<title>Fracciones funciones</title>
 	<style>
 		body{
 			font-family: Arial;
@@ -11,18 +11,30 @@
 			display: grid;
 			/*grid-template-columns: 20% 50% 30%;
 			grid-template-rows:300px 300px;*/
-			grid-template: 300px 100px 100px / 50% 200px 150px;
+			/*grid-template: 300px 100px 100px / repeat(4,minmax(200px, 1fr));*/
+			grid-template: 300px 100px 100px / minmax(200px, 1fr) 1fr 1fr 1fr;
+			/*minmax(valor minimo, valor maximo)*/
+			/*grid-template: 300px 100px 100px / repeat(4,1fr); */
+			/* esto es equivalen a grid-template: 300px 100px 100px / 1fr 1fr 1fr;*/
+			/*unidad de medida fr = fracciones*/
+
+			/*grid-column-gap: 30px;
+			grid-row-gap: 30px;*/
+			/*grid-gap: 10px 100px;*/
+			grid-gap: 10px;
 		}
 		.item{
 			background: lightblue;
 			padding: 10px;
 			border: 1px solid red;
+			/*margin-right: 10px;
+			margin-bottom: 10px;*/
 		}
 
 		.item:nth-of-type(4){
 			background: blue;
 			overflow: auto; /*scroll */
-			/*display: subgrid; no existe*/
+			/*display: subgrid; no existe aun*/
 			display: grid;
 			grid-template: 50px 50px 50px / 120px 120px 120px;
 		}

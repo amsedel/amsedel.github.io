@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Displays</title>
+	<title>GAP</title>
 	<style>
 		body{
 			font-family: Arial;
@@ -12,17 +12,22 @@
 			/*grid-template-columns: 20% 50% 30%;
 			grid-template-rows:300px 300px;*/
 			grid-template: 300px 100px 100px / 50% 200px 150px;
+			/*grid-column-gap: 30px;
+			grid-row-gap: 30px;*/
+			grid-gap: 10px 100px;
 		}
 		.item{
 			background: lightblue;
 			padding: 10px;
 			border: 1px solid red;
+			/*margin-right: 10px;
+			margin-bottom: 10px;*/
 		}
 
 		.item:nth-of-type(4){
 			background: blue;
 			overflow: auto; /*scroll */
-			/*display: subgrid; no existe*/
+			/*display: subgrid; no existe aun*/
 			display: grid;
 			grid-template: 50px 50px 50px / 120px 120px 120px;
 		}
