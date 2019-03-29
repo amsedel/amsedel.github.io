@@ -44,18 +44,6 @@ var paula = {
 //es equivalente a (desglosandola sin la variable persona):
 const esAlta = ({altura}) => altura > 1.8;
 
-// const pasarAlturaACms = (persona) =>{
-//     persona.altura *=100; //  persona.altura  = persona.altura *100
-//     return persona;
-// }
-
-//para retornar un nuevo array:
- const pasarAlturaACms = (persona) =>{
-     return {
-         ...persona,
-         altura: persona.altura *100 //  persona.altura  = persona.altura *100
-     }
- }
 
 var personas = [sacha , alan,martin, dario, vicky, paula]; //arreglo de objetos
 
@@ -64,6 +52,25 @@ var personasAltas = personas.filter(esAlta); //esto es equivalente a
 // var personasAltas = personas.filter(function(persona){
 //     return persona.altura > 1.8;
 // });
+
+// const pasarAlturaACms = (persona) =>{
+//     persona.altura *=100; //  persona.altura  = persona.altura *100
+//     return persona;
+// }
+
+//para retornar un nuevo array:
+ // const pasarAlturaACms = (persona) =>{
+ //     return { //se regresa un nuevo objeto (diferente) para que el objeto no se sobreescriba
+ //         ...persona,
+ //         altura: persona.altura *100 //  persona.altura  = persona.altura *100
+ //     }
+ // }
+//OTRA FORMA DE DECLARAR LO DE ARRIBA ES:
+
+const pasarAlturaACms = persona =>({
+    ...persona,
+    altura: persona.altura*100
+})
 
 var personasCms = personas.map(pasarAlturaACms);
 
