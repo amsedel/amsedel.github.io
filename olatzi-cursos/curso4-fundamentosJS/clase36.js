@@ -27,7 +27,7 @@ function onError(id){
 
 async function obtenerPersonajes(){
 
-    var ids = [1, 2, 3, 4, 5];
+    var ids = [1, 2, 3, 4, 5, 6, 7];
     //un array de promesas
     var promesas = ids.map(id => obtenerPersonaje(id));
     //all es un metodo de promesa

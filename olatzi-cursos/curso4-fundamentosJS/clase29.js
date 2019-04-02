@@ -15,11 +15,12 @@ const opts = {crossDomain: true};
 //     //las funciones que nos regresa los argumentos que tiene la función
 //     console.log(`Hola soy ${dataLuke.name}`);
 // });
-const onResponse = function(dataLuke){
-    //console.log(arguments);//arguments es una funcion que tienen todos
-    //las funciones que nos regresa los argumentos que tiene la función
-    console.log(`Hola soy ${dataLuke.name}`);
-}
+ const onResponse = function(dataLuke){
+     //console.log(arguments);//arguments es una funcion que tienen todos
+     //las funciones que nos regresa los argumentos que tiene la función
+     console.log(`Hola soy ${dataLuke.name}`);
+ }
 $.get(lukeurl, opts, onResponse);
 //la funcion anonima solo se ejecuta si el request es exitoso y quien
 //lo ejecuta es el $.get
+

@@ -11,6 +11,8 @@ constructor(nombre, apellido, altura ){//metodo constructor
 
     saludar(fn){ //pasar la funcion responder Saludo como parámetro fn (puede tener cualquier nombre)
         var {nombre,apellido} = this; 
+        // var nombre = this.nombre;
+        // var apellido = this.apellido;
         console.log(`Hola, me llamo ${nombre} ${apellido}`);
          if(fn){//preguntamos si fn esta definida es decir nos pasaron un valor
             //null y 0 en un if siempre son false, tambien string vacio ''

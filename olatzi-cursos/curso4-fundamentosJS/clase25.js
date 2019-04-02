@@ -22,14 +22,15 @@ constructor(nombre, apellido, altura ){//metodo constructor
 
 
     class Desarrollador extends Persona{
-        constructor(nombre, apellido, altura){
+        constructor(nombre, apellido, altura, edad){
             super(nombre, apellido, altura); //llamando al constructor padre
             //no podemos utilizar this sin antes llamar al constructor del elemento padre
+            this.edad = edad;
         }
 
-        //pisamos el metodo saludar en persona , es decir lo sobreescribimos
+        //pisamos el metodo saludar en persona , es decir lo sobreescribimos en Desarrollador
         saludar(){
-            console.log(`Hola me llamo ${this.nombre} ${this.apellido} y soy desarrolladora`);
+            console.log(`Hola me llamo ${this.nombre} ${this.apellido} soy desarrollador/a y tengo ${this.edad} años`);
         }
 
     }
@@ -40,3 +41,4 @@ constructor(nombre, apellido, altura ){//metodo constructor
 // var diego = new Persona('Diego','García',1.81);
 // var gabi = new Persona('Gabriela','Sánchez', 1.60);
 
+// var diego = new Desarrollador('Diego','García',1.81, 27);

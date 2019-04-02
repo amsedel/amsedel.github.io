@@ -29,6 +29,7 @@ var ids = [1, 2, 3, 4, 5];
 //un array de promesas
 var promesas = ids.map(id => obtenerPersonaje(id));
 //all es un metodo de promesa
+//console.log(promesas);
 Promise.all(promesas)
 .then(personajes=> console.log(personajes))
 .catch(onError)

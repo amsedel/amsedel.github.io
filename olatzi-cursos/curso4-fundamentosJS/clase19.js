@@ -68,7 +68,7 @@ var personasAltas = personas.filter(esAlta); //esto es equivalente a
 //OTRA FORMA DE DECLARAR LO DE ARRIBA ES:
 
 const pasarAlturaACms = persona =>({
-    ...persona,
+    ...persona, //hacemos una copia del objeto, 
     altura: persona.altura*100
 })
 

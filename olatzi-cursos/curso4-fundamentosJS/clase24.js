@@ -3,7 +3,7 @@ function heresaDe(prototipoHijo, prototipoPadre){
 //tenemos que decirle al prototipo hijo quien es su prototipo padre
 //asignarle un prototipo al prototipo  hijo
 //funcion llamada comunmente fn o noop, leasignamos una funcion vacia
-var fn = function(){ //funcion anonima asignada a var fn
+var fn = function(){} //funcion anonima asignada a var fn
 	//a esta función le vamos a asignar el prototipo padre
 	//prototipo padre y prototipo hijo son funciones y todas las 
 	//funciones tienen el atributo prototype
@@ -15,7 +15,7 @@ var fn = function(){ //funcion anonima asignada a var fn
 	prototipoHijo.prototype.constructor = prototipoHijo; //para llamar al constructor del hijo
 	//sino se va a estar llamando al del padre
 
-}
+
 }
 
 function Persona(nombre_, apellido_, altura_){//constructor?
@@ -38,6 +38,7 @@ Persona.prototype.eresAlto =function(){
 function Desarrollador (nombre, apellido, altura){ //especie de constructor
 	this.nombre = nombre; 
 	this.apellido = apellido;
+	this.altura = altura;
 }
 //
 
