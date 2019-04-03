@@ -2,16 +2,21 @@ package com.ids.dledesma.amazon.model;
 
 import java.util.Date;
 
-public class Book {
-	
+public class Book extends Publications implements IVisualizable {
+
 	  private int id;
-	  private String title;
-	  private Date editionDate;
-	  private String editorial;
-	  private String[] authors;
 	  private String isbn;
 	  private boolean readed;
 	  private int timeReaded;
+	  
+	  
+	  public Book(String title, Date editionDate, String editorial, String[] authors , String isbn, boolean readed, int timeReaded) {
+		super(title, editionDate, editorial, authors);
+		// TODO Auto-generated constructor stub
+		this.isbn = isbn;
+		this.readed = readed;
+		this.timeReaded = timeReaded;
+	}
 	  
 	  
 	public int getId() {
@@ -21,46 +26,6 @@ public class Book {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-
-	public String getTitle() {
-		return title;
-	}
-
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-
-	public Date getEditionDate() {
-		return editionDate;
-	}
-
-
-	public void setEditionDate(Date editionDate) {
-		this.editionDate = editionDate;
-	}
-
-
-	public String getEditorial() {
-		return editorial;
-	}
-
-
-	public void setEditorial(String editorial) {
-		this.editorial = editorial;
-	}
-
-
-	public String[] getAuthors() {
-		return authors;
-	}
-
-
-	public void setAuthors(String[] authors) {
-		this.authors = authors;
 	}
 
 
@@ -93,15 +58,33 @@ public class Book {
 		this.timeReaded = timeReaded;
 	}
 
-
-	public Book(String title, Date editionDate, String editorial, String isbn) {
-		super();
-		this.title = title;
-		this.editionDate = editionDate;
-		this.editorial = editorial;
-		this.isbn = isbn;
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Title: " + getTitle() + 
+				"\nEdition year: " + getEditionDate() + 
+				"\nEditorial: " + getEditorial() +
+				"\nAuthors: " + getAuthors();
 	}
 
-	  
+
+	@Override
+	public Date startToSee(Date dateI) {
+		// TODO Auto-generated method stub
+		return dateI;
+	}
+
+
+	@Override
+	public void stopToSee(Date dateI, Date datef) {
+		// TODO Auto-generated method stub
+		
+		if(datef.getSeconds()>dateI.getSeconds()) {
+			setTimeReaded(datef.getSeconds() - dateI.getSeconds());
+		} else {
+			setTimeReaded(0);
+		}
+		
+	}
 	  
 }

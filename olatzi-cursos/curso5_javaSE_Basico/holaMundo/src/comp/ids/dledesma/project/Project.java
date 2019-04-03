@@ -1,24 +1,23 @@
 package comp.ids.dledesma.project;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 import com.ids.dledesma.amazon.model.Movie;
+
 
 
 public class Project {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	//  Movie movie = new Movie ("Coco", "Animation",(short)2017);
-		//movie.title ="Rambo";
-	//	movie.setTitle("Rambo");
-	//	movie.showData();
-		//showMenu();
+
+		showMenu();
 	}
 	
 public static void showMenu() {
 	int exit = 0;
-	
 	do {
 		
 		System.out.println("Bienvenidos");
@@ -32,10 +31,11 @@ public static void showMenu() {
 		System.out.println("6.- Report Today");
 		System.out.println("0.- Exit");
 		
-		//Leer la respuesta del espacio
+		//Leer la respuesta del usuario
 		
-		//Scanner sc = new Scanner(System.in);
-		int response = 1;
+		Scanner sc = new Scanner(System.in);
+		//parseo
+		int response = Integer.valueOf(sc.nextLine());
 		//int response = Integer.valueOf(sc.nextLine());
 		
 		switch(response) {
@@ -76,11 +76,58 @@ public static void showMenu() {
 public static void showMovies(){
 	//como se van a mostrat las peliculas
 	int exit = 0; //vairable local
-	
+	ArrayList<Movie> movies = Movie.makeMoviesList();
 	do {
 		System.out.println();
 		System.out.println("MOVIES");
 		System.out.println();
+		
+		for(int i = 0; i<movies.size(); i++) {
+			//obtenemos el objeto con movies.get(i)
+			System.out.println(i+1 + ".- " + movies.get(i).getTitle()+ "Visto: " + movies.get(i).isViewed());
+		}
+		
+		//System.out.println("0. Regresar al Menu");
+		//System.out.println();
+		
+		//Leer respuesta del usuario
+		
+		//Scanner sc = new Scanner(System.in);
+		//int response = Integer.valueOf(sc.nextLine());
+		
+		//if(response == 0){
+	//		showMenu();
+	//	}
+		
+		Scanner sc = new Scanner(System.in);
+		int response = Integer.valueOf(sc.nextLine());
+		
+		
+		Movie movieSelected = movies.get(response-1);
+		movieSelected.setViewed(true);
+		Date dateI = movieSelected.startToSee(new Date());
+		
+		//termine de verla
+		
+		for(int i=0; i<100; i++){
+			System.out.println("...................");
+		}
+		
+		//termine de verla
+		
+		movieSelected.stopToSee(dateI, new Date());
+		System.out.println();
+		System.out.println("Viste: " + movieSelected);
+		System.out.println("Por " + movieSelected.getTimeViewed() + "milisegundos");
+		System.out.println("0. Regresar al Menu");
+		System.out.println();
+		
+		Scanner sc2 = new Scanner(System.in);
+		int response2 = Integer.valueOf(sc.nextLine());
+		if(response2 == 0){
+			showMenu();
+		}
+		
 	}while(exit !=0);
 	
 }

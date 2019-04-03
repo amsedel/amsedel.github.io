@@ -1,11 +1,14 @@
 package com.ids.dledesma.amazon.model;
 
+import java.util.ArrayList;
+
 public class Serie extends Film{
 	
 
 	private int id;
 	private int sessionQuantity;
-	private Chapter[] chapter;
+	//private Chapter[] chapters;
+	private ArrayList<Chapter> chapters;
 	private int timeViewed;
 	  
 	
@@ -21,4 +24,41 @@ public class Serie extends Film{
 		return id;
 	}
 
+
+
+	public int getSessionQuantity() {
+		return sessionQuantity;
+	}
+
+
+
+	public void setSessionQuantity(int sessionQuantity) {
+		this.sessionQuantity = sessionQuantity;
+	}
+
+
+
+	public ArrayList<Chapter> getChapters() {
+		return chapters;
+	}
+
+
+
+	public void setChapters(ArrayList<Chapter>chapters) {
+		this.chapters = chapters;
+	}
+
+
+
+	public int getTimeViewed() {
+		return timeViewed;
+	}
+
+
+
+	public void setTimeViewed(int timeViewed) {
+		this.timeViewed = timeViewed;
+	}
+
+	
 }
