@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import com.anncode.amazonviewer.model.Book;
 import com.anncode.amazonviewer.model.Chapter;
@@ -31,9 +32,9 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Film film = new Movie("", "", "", 1, (short)1991);
+		//Film film = new Movie("", "", "", 1, (short)1991);
 		
-		film.view();
+		//film.view();
 		showMenu();
 
 	}
@@ -104,9 +105,15 @@ public class Main {
 			System.out.println(":: MOVIES ::");
 			System.out.println();
 			
-			for (int i = 0; i < movies.size(); i++) { //1. Movie 1
+			
+			//generar un numero entero con la clase atomicq
+			AtomicInteger atomicInteger = new AtomicInteger(1);//inicia en 1
+			//ejemplo con lambdas, sustituyendo el for
+			movies.forEach(m -> System.out.println(atomicInteger.getAndIncrement() + m.getTitle() + " Visto: " + m.isViewed()));
+			
+			/*for (int i = 0; i < movies.size(); i++) { //1. Movie 1
 				System.out.println(i+1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isViewed());
-			}
+			}*/
 			
 			System.out.println("0. Regresar al Menu");
 			System.out.println();
