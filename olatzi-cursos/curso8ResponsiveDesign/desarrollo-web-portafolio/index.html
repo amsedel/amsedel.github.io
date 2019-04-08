@@ -19,13 +19,13 @@
   
   </head>
   <body>
-    <i class="icon-menu burger-button" id="burguer-menu"></i>
+    <i class="icon-menu burger-button" id="burger-menu"></i>
     <header class="header">
       <div class="container">
         <figure class="logo">
           <img src="images/logo.png" height="50" alt="Logo de http://leonidasesteban.com" />
         </figure>
-        <nav class="menu is-active">
+        <nav class="menu">
           <ol>
             <li>
               <a class="link" href="#portafolio">Portafolio</a>
@@ -164,14 +164,48 @@
     </footer>  
     <script>
     
+
+    const ipad= window.matchMedia('screen and (max-width:767px)'); //media query e js
     const menu = document.querySelector(".menu");
-    menu.classList.add('is-active');
-    const burgerButton = document.querySelector("#burguer-menu")
-    burgerButton.addEventListener('click', hideShow)
+    // menu.classList.add('is-active');
+     const burgerButton = document.querySelector("#burger-menu");
+    // console.log(burgerButton);
+    
+
+
+    //escuchar los cambios del media con addistener
+    ipad.addListener(validation);  //addListener es una funcion que invoca otra funcion
+    
+
+    function validation(event_validation){
+    //console.log(event_validation.matches);
+      if(event_validation.matches){
+        burgerButton.addEventListener('click', hideShow); //agregar escucha de eventos
+      }else{
+        burgerButton.removeEventListener('click', hideShow); //quitar escucha a los eventos
+      }
+
+    }
+
+    validation(ipad);
 
     function hideShow(){
-      menu.classList.add('is-active');
-    }
+      //  menu.classList.add('is-active'); //le agregamos la propiedad 'is-active'
+      //menu.setAttribute("class", 'menu is-active' );
+      //menu.className="menu is-active";
+      //console.log('g');
+      if(menu.classList.contains('is-active')){ //si contiene esta clase
+        menu.classList.remove('is-active'); //removemos la clase
+      }else{
+        menu.classList.add('is-active');
+      }
+
+      }
+
+     
+
+
+
     </script>
   </body>
 </html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practica llenado de datos</title>
+</head>
+<body contextmenu="context">
+
+	<section>
+		<form>
+			<fieldset>
+			<legend> Datos Personales</legend>
+			<br>
+			<div>
+				<label for="nombre">Nombre: </label>
+				<input type="text" name="nombre">
+			</div>
+			<br>
+			<div>
+				<label for="edad">Edad: </label>
+				<input type="Number" name="edad">
+			</div>
+			<br>
+			<legend>
+			</fieldset>
+			<fieldset>
+			<legend>Cultura General</legend>
+			<br>
+			<div>
+				<label for="capital">Capital de Noruega: </label>
+				<input type="radio" name="capital">
+				<label for="capital">Cophenhague: </label>
+				<input type="radio" name="capital">
+				<label for="capital">Helsinki: </label>
+				<input type="radio" name="capital">
+				<label for="capital">Oslo: </label>
+			</div>
+			<br>
+			<div>
+				<label for="fecharev">Fecha de Revolución Francesa: </label>
+				<input type="radio" name="fecha">
+				<label for="uno">1492 </label>
+				<input type="radio" name="fecha">
+				<label for="dos">1789 </label>
+				<input type="radio" name="fecha">
+				<label for="tres">1917 </label>
+				<input type="radio" name="fecha">
+			</div>
+			</fieldset>
+			</legend>
+			<br>
+			<input type="Submit" name="enviar" value="Enviar">
+			<input type="Reset" name="borrar" value="Borrar">
+		</form>
+	</section>
+	<section>
+		<h1>HTML5 number input</h1>
+		<a href=""><b>Ejemplo 1</b></a>
+		<br>
+		<form>
+			<label for="iedad">Introduce tu edad: </label>
+			<input type="Number" name="iedad" required>
+			<input type="Submit" name="enviar2" value="Enviar">
+		</form>
+	</section>
+	<br>
+	<section>
+		<a href=""><b>Ejemplo 2</b></a>
+		<br>
+		<form>
+			<label for="i2edad">Introduce tu edad (min=18 max=99, campo obligatorio): </label>
+			<input type="text" name="i2edad" required min="18" max="99">
+			<input type="Submit" name="enviar2" value="Enviar">
+		</form>
+	</section>
+	<br>
+
+	<section>
+		<a href=""><b>Ejemplo 2</b></a>
+		<br>
+		<form>
+			<label for="i3edad">Introduce tu edad (min=18 max=99, campo obligatorio): </label>
+			<input type="Number" name="i3edad" min="18" max="99" required>
+			<input type="Submit" name="enviar3" value="Enviar">
+		</form>
+	</section>
+	<br><br>
+
+
+	<div contextmenu="popup-menu">
+		<h1>MENU</h1>
+		Right-click to see adjusted context menu
+	</div>
+
+		<section>
+			<menu id="popup-menu" type="context">
+				<menuitem label="Item1">Action</menuitem>
+				<menuitem label="Item2">Another action</menuitem>
+				<hr>
+				<menuitem label="Item3">Separated action</menuitem>
+				<menuitem label="Item4">Item 4</menuitem>
+		</section>
+
+
+
+	<dialog id="dialogo1" open>
+		
+		<fieldset>
+		<p onclick="this.style.color='red'">Este párrafo se convierte en rojo al hacer click en él </p>
+		</fieldset>
+		<br>
+		<fieldset>
+		<p ondblclick="this.style.color='blue'">Este párrafo se convierte en azul al hacer doble click</p>
+		</fieldset>
+		<br>
+		<fieldset>
+		<p onmouseup="this.style.color='pink'">Este párrafo se convierte en rosa </p>
+		</fieldset>
+		<br>
+		<fieldset>
+		<p onmousedown="this.style.color='green'">Este párrafo se convierte en verde </p>
+		</fieldset>
+		<br>
+		<fieldset>
+		<p onmousemove="this.style.color='yellow'">Este párrafo se convierte en amarillo </p>
+		</fieldset>
+		<br>
+		<fieldset>
+		<p onmouseover="this.style.color='cyan'">Este párrafo se convierte en cian al pasar sobre el con el mouse</p>
+		</fieldset>
+		<br>
+		<fieldset>
+		<p onmouseout="this.style.color='purple'">Este párrafo se convierte en púrpura </p>
+		</fieldset>
+
+	</dialog>
+
+	<input type="button" name="btn"  value= "ocultar"  id="btna" >
+	<input type="button" name="btn"  value= "mostrar"  id="btnb" >
+
+
+	<!-- onFocus y onblur -->
+	<hr>
+	<section>
+		<input type="text" name="focus" onfocus="console.log('focus')">
+		<input type="text" name="blur" onblur="console.log('blur')"> 
+	</section>
+
+	<script>
+		var btnuno = document.getElementById('btna');
+		btnuno.addEventListener('click', abreBTN);
+
+		var btndos = document.getElementById('btnb');
+		btndos.addEventListener('click', cierraBTN);
+
+
+		function abreBTN(){
+
+			var dialog1 = document.getElementById('dialogo1');
+			dialog1.removeAttribute('open', 'open');
+		}
+
+		function cierraBTN(){
+
+			var dialog2 = document.getElementById('dialogo1');
+			dialog2.setAttribute('open', 'open');
+		}
+
+	</script>
+
+</body>
+</html>

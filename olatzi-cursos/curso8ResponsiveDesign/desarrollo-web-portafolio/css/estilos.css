@@ -505,7 +505,7 @@ h1{
     background: rgba(5,111,255,.8);
     z-index: 3;
     top: 0;
-    left: -100;
+    left: -100vw;
     width: 100vw;
     /* height: 100vh; */
     display: flex;

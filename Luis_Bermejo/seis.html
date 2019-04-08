@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Data</title>
+</head>
+<body>
+
+<section>
+	<img id="miImagen" src="images/cam.jpg" alt="Camara canon"
+	data-camara="Modelo de la camara que utilicé"
+	data-efecto="Efectos aplicados a esta foto"
+	data-geo="Longitud y Latitud"
+	data-fecha="La fecha que se tomo la foto">
+</section>
+
+<script>
+	
+// var imgsConEfecto = document.querySelectorAll('img[data-efecto]')[0].dataset.efecto;
+var imgsConEfecto = document.querySelectorAll('img[data-efecto]');
+
+var camara = document.getElementById('miImagen').dataset.camara;
+
+var elemento = document.getElementById('miImagen');
+var cam = elemento.dataset.camara;
+
+var attribute = elemento.getAttribute("data-geo");
+elemento.setAttribute('data-geo', 'someName');
+
+
+// efecto
+
+
+var elementoEfecto = document.getElementById('miImagen');
+var efec = elementoEfecto.dataset.efecto;
+
+// geo
+
+var elementoGeo = document.getElementById('miImagen');
+var geo = elementoGeo.dataset.geo;
+
+
+// fecha
+
+var elementoFecha = document.getElementById('miImagen');
+var fech = elementoFecha.dataset.fecha;
+
+console.log(imgsConEfecto);
+console.log('Atributos data');
+console.log(camara);
+console.log(geo);
+console.log(efec);
+console.log(fech);
+
+</script>
+</body>
+</html>
