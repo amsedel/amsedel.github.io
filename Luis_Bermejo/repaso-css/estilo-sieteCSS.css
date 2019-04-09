@@ -1,0 +1,108 @@
+
+@charset "utf-8"
+
+/*SELECTORES SIMPLES*/
+
+*{
+	color: blue;
+}
+
+body{
+	background-color:#D5DBDB;
+}
+
+p{
+	color: green;
+}
+
+#e-dos{
+	color: black;
+	font-size: 40px;
+}
+
+li#e-uno{
+	font-size: 25px;
+}
+
+.class-parr-2 {
+	color: black;
+}
+
+p.class-parr-3 {
+	color: pink;
+}
+
+/*COMBINACIONES*/
+
+div{
+	border: yellow 3px solid;
+}
+
+/*SELECTORES DESCENDIENTES, no importa si hay algo intermedio*/
+div h2{
+	color: red;
+}
+
+div p{	
+	/* div li p , no importa si los li estan intermedios
+	afecta a toda su descendencia */
+	color: deeppink;
+}
+
+
+div.div-4 > p { 
+	/* > solamente afecta a sus hijos inmediatos, importándole
+	los intermedios*/
+	color: orange;
+}
+
+article.artic + span {
+	/*span y article son hermanos*/
+	/*Span hermano de article inmediato de article*/
+	font-size: 40px;
+	color: black;
+}
+
+article ~ span {
+	/*span y article son hermanos */
+	/*Afecta todos los span que son hermanos de article*/
+	font-size: 30px;
+	color: turquoise;
+}
+
+/*SELECTORES DE ATRIBUTO*/
+
+th[scope] {
+	/*Los th que tengan el atributo scope*/
+	color: yellowgreen;
+}
+
+th[scope="row"] {
+	/*solo los th que tengan el atributo scope pero que
+	tenga el valor de row*/
+	color: mediumslateblue;
+	background-color: goldenrod;
+}
+
+td[class="price"]{
+	background-color: darkgrey;
+}
+
+td[class ~= "product"]{
+	/*busca que dentro de las clases esté declarada 
+	la plabra product*/
+	/*con que tenga la palabra product*/
+	background-color: yellowgreen;
+	text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+

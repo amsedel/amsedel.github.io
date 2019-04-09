@@ -1,0 +1,119 @@
+
+a:link{
+	color: green;
+	font-weight: bold;
+}
+
+a:visited{
+	color: purple;
+	font-weight: bold;
+}
+
+a:hover{
+	background-color: cyan;
+}
+
+a:active{
+	border:2px solid #ff0000;
+	padding: 2px;
+}
+
+input:focus{
+	border: 2px dotted #444;
+
+}
+
+input:checked + span{
+	background-color: orange;
+	padding: 4px;
+}
+
+input:read-only{
+	background-color: darkred;
+	color: white;
+}
+
+input:required{
+	border: 2px solid blue;
+}
+
+input.myText4:optional{
+	border: 2px solid grey;
+}
+
+input.valid1:invalid{
+	background-color: darkred;
+}
+
+input.valid1:valid {
+	background-color: green;
+	color: white;
+}
+
+input.rang:out-of-range {
+	background-color: darkred;
+	color: white;
+}
+
+input.rang:in-range {
+	background-color: green;
+	color: white;
+}
+
+strong:first-child{
+	background-color: cyan;
+}
+
+strong:last-child{
+	background-color: green;
+}
+strong:nth-child(3){
+	background-color: yellow;
+}
+
+.abuelo div{
+	border-width: 2px;
+	border-style: solid;
+	border-color: black;
+}
+
+.padre::after{
+	content:"Contenido insertado tras el contenido de los elmentos '.padre'";
+	color: #009cde;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.padre::before{
+	content:"Contenido insertado antes del contenido de los elmentos '.padre'";
+	color: #0000ff;
+	font-weight: italic;
+	font-size: 0.8rem;
+}
+
+.pseudoelementos2 p::first-letter{
+color: black;
+font-family: 'Times New Roman', serif;
+font-size: 42px;
+}
+
+.pseudoelementos2 p::first-line{
+	color: #999;
+}
+
+.pseudoelementos3 p::selection{
+	color: cyan;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
