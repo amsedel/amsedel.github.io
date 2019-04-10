@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Valores por default</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	
+ function tablaDeMultiplicar(tabla, hasta=10){
+ 	for(var i=0; i<=hasta; i++)
+ 		console.log(tabla, 'x' , i, '=' , tabla * i);
+ }
+
+ tablaDeMultiplicar(2); //multiplica hasta 10
+ tablaDeMultiplicar(2, 15); //multiplica hasta 15
+
+
+function f(x, y=2, z=7){
+	return x+y+z;
+}
+
+console.log(f(5,undefined));
+//es lo mismo como si no estuviera undefined
+
+</script>
+</body>
+</html>

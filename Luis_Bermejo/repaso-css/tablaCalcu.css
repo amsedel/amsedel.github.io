@@ -1,0 +1,40 @@
+html{
+	margin: 0;
+	padding: 2% 0;
+	font-family: Arial, serif;
+}
+
+table { 
+    border-spacing: 0px;
+    /*border-collapse: separate;*/
+    margin: 0 auto;
+    /*padding: 10% 0;*/
+    font-weight: bold;
+	font-size: 1.8em;
+	background: #f1f1f1;
+	border: 1px solid gray;
+}
+
+thead th{
+	text-align: right;
+	color: white;
+	background: #A0A0A0;
+	font-size: 2em;
+	font-weight: lighter;
+}
+
+th, td { 
+	width: 30px;
+	height: 30px;
+	text-align: center;
+    padding: 2vw;
+}
+
+td:last-child{
+	background-color: orange;
+	color: white;
+}
+
+td [colspan="2"]{
+	text-align: left;
+}

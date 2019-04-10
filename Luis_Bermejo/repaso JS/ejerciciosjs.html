@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Diana Anahí Ledesma Roque">
+	<meta name="description" content="Ejercicios JS">
+	<title>Ejercicios js</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+/**********************************************************************/
+
+//1.- USO OPERADOR CONDICIONAL TERNARIO
+		// Atajo de la intrucción if, sintaxis: 
+		//condición ? expr1 : expr2
+
+			// var animal = 'kitty';
+			// var result = (animal ==='kitty') ? 'cute' : 'still nice';
+
+			// console.log(result);
+
+		// *Se evalua la condición " animal ==='kitty' " en valor y 
+		// tipo. Como el resultado es verdadero la condición regresa:
+		// cute.
+		//De haber sido falso retornaría: still nice.
+
+/**********************************************************************/
+
+//2.- CONDICIONAL IF
+
+		// function condicionalIf(){
+		// 		let animal = 'kitty';
+		// 		let result = ' ';
+
+		// 		if(animal === 'kitty'){
+		// 			result = 'cute';
+		// 		}else{
+		// 			result = 'still nice';
+		// 		}
+
+		// 		console.log(result);
+		// 	}
+		// 	condicionalIf();
+
+		/*Se asignan los valores a las variables animal y result. De nuevo se evalua la condición " animal === 'kitty' " , en tipo y valor. Como la evualuación es verdadera, se le asigna a la variable result 'cute'. De ser falsa la expresión se le asignaria a result 'still nice'.*/
+
+/*********************************************************************/
+
+//3.- PRECEDENCIA DE OPERADORES Y OPERADOR CONDICIONAL TERNARIO
+
+				// function precedenciaOper(){
+				// 	var  a = 0;
+				// 	var str = 'not a';
+				// 	var b = '';
+				// 	b = a === 0 ? (a=1, str += ' test') : ( a = 2);
+
+				// 	console.log (b);
+				// }
+				// precedenciaOper();
+
+		/* Se inicializan a las variables (a,b, str). Y se evalua la
+		condición "b = a === 0" , en esa condición, primero se realiza
+		la asignación del valor de b = a y a continuación se evalua si b
+		es igual en valor y tipo al valor 0. Como la condición es 
+		verdadera 'a=1' y a str se le concatena el ' test', mostrando 
+		en consola el string de 'not a test'.*/
+/*********************************************************************/
+
+//4.- OPERADOR CONDICIONAL TERNARIO
+
+
+				// function condicionalTernario2(){
+				// 	var a = 1;
+				// 	a===1 ? alert('Hey, it is 1!!!') : 0;
+				// 	console.log(a);
+				// }
+				// condicionalTernario2();
+
+
+		/* Se asigna el valor de 1 a la variable a. Posteriormente se 
+		realiza la evaluación de triple igual para validar valor y tipo
+		como esta evaluación es verdatera, se ejecuta el alert. De no 
+		haber sido cierta, el valor devuelto sería el mismo valor 
+		inicializado en a*/
+
+//5.- IF UNA LÍNEA
+
+				// function ifUnaLinea(){
+				// let a = 0;
+
+				// //a === 1 ? alert('Hey, it is 1!!!') : alert('Weird, what could it be?');
+
+				// //if (a===1) alert('Hey, it is 1!!!'); else alert('Weird, what could it be?')
+
+				// if (a===1) alert('Hey, it is 1!!!') else alert('Weird, what could it be?')
+				// }
+				// ifUnaLinea();
+
+		/* Las dos líneas hacen lo mismo, sin embargo a la línea que 
+		ejemplifica el if-else le falta un ';' antes del else, para su 
+		funcionamiento*/
+/*********************************************************************/
+
+//6.- CICLO FOR
+
+				// let animal = 'kitty';
+				// for (var i = 0; i<5; ++i){
+				// 	(animal === 'kitty') ? break: console.log(i)
+				// }
+
+
+			/*Error en consola por sintaxis. 
+			Un break no puede utilizarse en un if?????????*/
+/*********************************************************************/
+
+//7.- SWITCH
+
+
+			// function ejercicioSwitch(){
+
+			// 	let value = 2;
+
+			// 	switch (value){
+
+			// 		case 1:
+			// 			console.log('I will always run');
+			// 			break;
+			// 		case 2:
+			// 			console.log('I will never run');
+			// 			break;
+			// 		}
+			// 	}
+			// ejercicioSwitch();
+
+		/*El switch evalua los casos cuando value vale 1 y 2. Al evaluar 
+		uno de los dos casos se ejecuta las sentencia console y a 
+		continuación se rompe la condición y se termina de ejecutar el 
+		switch. Si value no fuera ni 1 o 2 , simplemente no se ejecuta
+		nada. Habría que especificar un default.*/
+
+/*********************************************************************/
+
+//8.- SWITCH 2
+
+			/*function switch2(){
+
+					let animal = 'Lion';
+					switch (animal){
+
+						case 'Dog':
+						console.log("I will not run since animal !=='Dog'");
+						break;
+
+						case 'Cat':
+						console.log("I will not run since animal !=='Cat'");
+						break;
+
+						default:
+						console.log("I will not run since animal does not match any other case");
+
+					}
+				}*/
+
+		/*Se ejecuta default, ya que ninguno de los casos se cumplen.*/
+
+/*********************************************************************/
+
+//9.- SWITCH CON FUNCIONES		
+
+		// function switchConFunciones(){
+
+		// 		function john(){
+		// 			return 'Jhon';
+		// 		}
+		// 		function jacob(){
+		// 			return 'Jacob';
+		// 		}
+
+		// 			switch ('Jane'){
+
+		// 				case john():
+		// 				console.log("I will run if my name === 'Jhon'");
+		// 				break;
+
+		// 				case 'Ja' + 'ne':
+		// 				console.log("I will run if my name === 'Jane'");
+		// 				break;
+
+		// 				case john() + '' + jacob() + 'Jingleheimer Schmidt':
+		// 				console.log("His name is equal to name too");
+		// 				break;
+		// 			}	
+		// 		}
+		// 		switchConFunciones();
+
+		/*Es posible evaluar funciones en el switch, siempre
+		y cuando estas funciones retornen el valor.En este ejeplo 
+		las funciones retornan los string de los nombres de 'John y 
+		Jacob'. Tampoco hay problema si el valor de caso viene 
+		concatenado, ya que el case hace la concatenación y después
+		la comparación del valor Jane.*/
+/*********************************************************************/
+
+//10.- RESULTADO DE LAS SENTENCIAS PARTE 1. OPERADORES LÓGICOS. OR
+
+
+						//Tabla de verdad de OR
+							// F || F = F
+							// F || T = T
+							// T || F = T
+							// T || T = T
+
+
+					//var a = 'hello' || ''; console.log(a); 
+		
+		/*El resultado es hello en la consola. 
+		El segundo valor '' se considera como falso, 
+		e imprime lo que considera verdadero */
+
+
+
+
+					//var b = '' || [] ; console.log(b); 
+
+		/*El resultado es [] en la consola. 
+		Los [] son evaluados como verdaderos*/
+
+
+
+					//var c = '' || undefined; console.log(c);
+
+		/*El valor en la consola es c= undefined, es decir
+		es como si la variable no se le haya asignado ningun valor*/
+		/*Tanto ' ' y undefined, son evaluados como false*/
+
+
+
+
+					//var d = 1 || 5; console.log(d);
+
+		/*Ambos valores (1 y 5) los considera como true, pero
+		siempre retorna el primer valor asignado, en este caso el 1 */
+
+
+
+
+					//var e = 0 || {}; console.log(e); 
+
+		/*El cero es evaluado como false y las llaves son evaluadas
+		como true, por lo que regresa {}. La consola lo desglosa
+		como un objeto*/
+
+
+
+
+					//var f = 0 || '' || 5; console.log(f);
+
+		/*Primero se realiza una evaluación lógica y posteriormente la 
+		otra donde, el resoltado de ' 0 || '' ' se evaluá como false,
+		posteriormente la el resultado de la primera con la segunda parte
+		false || 5 , da resultado de 5 en la consola. Ya ya los números
+		a excepción del 0 se evaluan como true*/
+
+
+
+
+					//var g = ''  || 'yay' || 'boo'; console.log(g);
+
+		/*El resultado de esto en consola es yay. Debido a que primero 
+		se evalua la condición ' ''  || 'yay'  ', lo que retorna en yay
+		ya que '' se considera como un false. La segunda evaluación que se 
+		hace es 'yay' || 'boo' , de lo que resulta 'yay' , ya que los 2
+		strings se consideran como verdaderos, sin embargo se retorna 'yay'
+		debido a que es el primer elemento. */
+
+/*********************************************************************/
+
+//11.- RESULTADO DE LAS SENTENCIAS PARTE 2. OPERADORES LÓGICOS. AND
+
+
+						//Tabla de verdad de AND
+							// F && F = F
+							// F && T = F
+							// T && F = F
+							// T && T = T
+
+
+					//var a = 'hello' && ''; console.log(a);
+
+		/*El resultado de a en consola es de '' , debido a que de 
+		acuerdo a su tabla de verdad T && F = F , esto es 'hello' es
+		evaluado como true, '' es evaluado como false. Lo que se retorna
+		en este caso es '', porque es false*/
+
+
+
+					//var b = '' && []; 
+
+		/*El resultado de b en consola es de '' , debido a que de 
+		acuerdo a su tabla de verdad F && T = F , esto es [] es
+		evaluado como true, '' es evaluado como false. Lo que se retorna
+		en este caso es '', porque es false*/
+
+
+
+					//var c = undefined && 0; 
+
+		/*El resultado de c en consola es undefined, debido a que de 
+		acuerdo a su tabla de verdad F && F = F , esto es undefined es
+		evaluado como false, 0 es evaluado como false. Lo que se retorna
+		en este caso es undefined, porque es false, pero además porque 
+		esta en el primer termino.*/
+
+
+
+					//var d = 1 && 5;
+
+		/*El resultado de d en consola es 5, debido a que de 
+		acuerdo a su tabla de verdad T && T = T , esto es 1 es
+		evaluado como true, 5 es evaluado como true. Lo que se retorna
+		en este caso es 5, porque es true, pero además porque 
+		esta en el segundo termino.*/
+
+
+
+					//var e = 0 && {};
+
+		/*El resultado de e en consola es 0, debido a que de 
+		acuerdo a su tabla de verdad F && T = F , esto es 0 es
+		evaluado como false, {} es evaluado como true. Lo que se retorna
+		en este caso es 0, porque es false.*/
+
+
+
+
+					//var f = 'hi' && [] && 'done';
+
+		/*El resultado de f en consola es 'done', debido a que de 
+		acuerdo a su tabla de verdad T && T = T . Primero se realiza la
+		evualación del primer término ' 'hi' && [] ' , esto es 'hi' es
+		evaluado como true, [] es evaluado como true. Lo que se retorna
+		de esta primera parte es [], porque es true y esta en el segundo 
+		termino de la evaluación. La segunda evaluación que hace es 
+		' [] && 'done' ', dónde 'done' se evalua como true. El resultado de
+		esto es 'done' porque es true y porque está en el segundo término*/
+
+
+
+
+					//var g = 'bye' && undefined && 'adios';
+
+		/*El resultado de g en consola es undefined, debido a que de 
+		acuerdo a su tabla de verdad T && F = F . Primero se realiza la
+		evualación del primer término ' 'bye' && undefined ' , esto es 'bye' es
+		evaluado como true, undefined es evaluado como false. Lo que se retorna
+		de esta primera parte es undefined, porque es false. La segunda evaluación 
+		que hace es ' undefined && 'adios' ', dónde undefined se evalua como false. 
+		El resultado de esto es undefined porque es false*/
+
+/*********************************************************************/
+
+//12.-OPERADORES LÓGICOS PARTE 3
+
+
+
+					// var foo = function(val){
+					// 	return val || 'default';
+					// }
+
+
+
+
+					//console.log(foo('burger'));
+
+		/*El parámetro val es igual al string 'burger' el cual se evalua como 
+		true. El segundo string 'default también se evalúa como true. Sin embargo
+		la respuesta en consola es burger, esto es debido a que es true (de acuerdo a su
+		tabla de verdad T || T = T) y debido a que es el primer termino*/
+
+
+
+
+					//console.log(foo(100));
+
+		/*El parámetro val es igual al numero 100 el cual se evalua como 
+		true. El segundo string 'default también se evalúa como true. Sin embargo
+		la respuesta en consola es 100, esto es debido a que es true (de acuerdo a su
+		tabla de verdad T || T = T) y debido a que es el primer termino*/
+
+
+
+
+					//console.log(foo([]));
+
+		/*El parámetro val es igual a [] el cual se evalua como 
+		true. El segundo string 'default también se evalúa como true. Sin embargo
+		la respuesta en consola es [], esto es debido a que es true (de acuerdo a su
+		tabla de verdad T || T = T) y debido a que es el primer termino*/
+
+
+
+
+					//console.log(foo(0));
+
+		/*El parámetro val es igual a 0 el cual se evalua como 
+		false. El segundo string 'default se evalúa como true. Sin embargo
+		la respuesta en consola es 'default', esto es debido a que es true 
+		(de acuerdo a su tabla de verdad F || T = T).*/
+
+
+
+
+					//console.log(foo(undefined));
+
+		/*El parámetro val es igual a undefined el cual se evalua como 
+		false. El segundo string 'default se evalúa como true. Sin embargo
+		la respuesta en consola es 'default', esto es debido a que es true 
+		(de acuerdo a su tabla de verdad F || T = T).*/
+
+/*********************************************************************/
+
+//13.-OPERADORES DE COMPARACIÓN. PRIORIDAD
+
+
+						// var age = 15;
+						// var isLegal = age >= 18;
+
+		/*age debe tener un valor numérico. Por  prioridad primero se 
+		realiza la comparación age >= 18 y después la asignación del 
+		resultado. Hay dos posibles resultados true o false, por lo tanto
+		isLegal es true o false.*/
+
+
+
+
+						//var tall = height >= 5.11;
+
+		/*.La misma expliación al ejercicio anterior*/
+
+
+
+						//var suitable = isLegal && tall;
+
+		/*Por  prioridad primero se realiza la operación lógica: isLegal && tall, 
+		y después se realiza la asignación a suitable. La respuesta depende de lo
+		que contenga isLegal y tall.*/
+
+
+
+						//var status = 'royalty' ;
+						//var isRoyalty = status === 'royalty';
+
+		/*Por  prioridad primero se realiza la comparación status === 'royalty', 
+		y después se realiza la asignación a isRoyalty. La respuesta depende de status.
+		Si status es igual de valor y es de tipo string a 'royalty', el valor de isRoyalty
+		será true*/
+
+
+
+
+						//var specialCase = isRoyalty && hasInvitation;
+
+		/*Por  prioridad primero se realiza la operación lógica: isRoyalty && hasInvitation, 
+		y después se realiza la asignación a specialCase. La respuesta depende de lo
+		que contenga isRoyalty y hasInvitation.*/
+
+
+
+
+						//var canEnterOurBar = suitable || specialCase;
+
+		/*Por  prioridad primero se realiza la operación lógica: suitable || specialCase, 
+		y después se realiza la asignación a canEnterOurBar. La respuesta depende de lo
+		que contenga suitable y specialCase.*/
+
+/*********************************************************************/
+
+//14.-CONTINUE
+
+				// function mycontinue(){
+				// 		for(var i = 0; i<3; i++){
+				// 			if (i===1) {
+				// 				continue;
+				// 			}
+				// 			console.log(i);
+				// 		}
+				//     }
+
+				//     mycontinue();
+
+		/*La consola imprime 0 y 2. Lo que hizo la palabra reservada continue, fue
+		continuar nuevamente a partir  del for, no importandole lo que hay después de 
+		el, ya que no lo ejecuta.El uso de esta sentencia rompe la iteracion de dicho bucle. Provocando que se ejecute la siguiente iteracion de dicho bucle, ignorando las sentencias posteriores a "continue"*/	
+
+/*********************************************************************/
+
+//15.-CONTINUE PARTE 2
+
+			// function mycontinue2{
+			// 		var i = 0;
+			// 		while (i<3){
+			// 			if(i===1){
+			// 				i=2;
+			// 				continue;
+			// 			}
+			// 		console.log(i);
+			// 		i++;
+			// 		}
+			// 	}
+			// mycontinue2();	
+
+		/*La consola imprime 0 y 2. Lo que hizo la palabra reservada continue, fue
+		continuar nuevamente a partir  del while, no importandole lo que hay después de 
+		el, ya que no lo ejecuta, inluco la asignación i=2, aunque la realiza, esta ya no se muestra.El uso de esta sentencia rompe la iteracion del bucle while Provocando que se ejecute la siguiente iteracion de dicho bucle, ignorando las sentencias posteriores a "continue"*/	
+
+/*********************************************************************/
+
+//16.-BREAK 
+
+		// function break1(){
+
+		// 		for(var i = 0; i < 5; i++){
+		// 			nextLoop2Iteration:
+		// 			for(var j = 0; j < 5; j++){
+		// 				if(i==j) break nextLoop2Iteration;
+		// 				console.log(i,j);
+		// 			}
+		// 		}
+		// 	}
+
+		// 	break1();
+
+				//Consola:
+				//1 0
+				//2 0
+				//2 1
+				//3 0
+				//3 1
+				//3 2
+				//4 0
+				//4 1
+				//4 2
+				//4 3
+
+		/*Para i la consola muestra su numero repetido las veces que es
+		de acuerdo a su numero, para j se inicia un conteo a partir de 0
+		y va aumentando de uno en uno de acuerdo a las iteraciones (i y j, 
+		nunca son iguales en el mismo resultado). La sentencia
+		 de 'break' es de tipo de control de bucles. Dentro de la iteracion en un 
+		 bucle, de cualquiera de los tipos (while, do-while, for), el uso de esta 
+		 sentencia rompe la iteracion de dicho bucle. A diferencia de continue, break
+		 hace que el for se vuelva a reiniciar en i=0.*/	
+
+
+/*********************************************************************/
+
+//16.-SCOPE 
+
+
+				// function foo(){
+				// 	var a = 'hello';
+
+				// 	function bar(){
+				// 		var b = 'world';
+				// 		console.log(a);
+				// 		console.log(b);
+				// 	}
+				// 		 console.log(a);
+				// 		 console.log(b);
+				// }
+				// 		console.log(a);
+				// 		console.log(b);
+
+		/*Sale un error en consola, debido al alcance de las variables dentro de
+		 las funciones. La variable b solo puede ser accedida dentro de la misma 
+		 función bar(). Lo que hay dentro de foo no puede acceder a lo que hay 
+		 dentro de bar. Los consoles que estan fuera de las dos funciones
+		 tampoco pueden acceder a lo que hay dentro de las funciones, sin embargo lo que hay detro de bar() si puede acceder a lo que hay dentro de foo(). Es decir se puede
+		 tener acceso de adentro hacia afuera pero no de afuera hacia dentro */
+
+/*********************************************************************/
+
+//17.-CONST
+
+		 	// 	function foo(){
+				// 	const a = true;
+
+				// 	function bar(){
+				// 		const a = false;
+				// 		console.log(a);
+				// 	}
+				// 		const a = false;
+				// 		a = false;
+				// 		 console.log(a);
+				// }
+
+		/*En consola sale un error, de que la variable 'a' ya ha sido definida, ya que
+		es una constante y no una variable*/
+
+/*********************************************************************/
+
+//18.-FUNCIONES ANÓNIMAS
+
+
+					// var namedSum = function sum (a,b){
+					// 	return a+b;
+					// }
+					// var anonSum = function (a,b){
+					// 	return a+b;
+					// }
+
+					// namedSum(1,3);
+					// anonSum(1,3);
+
+		/*Ambas funciones estan correctas y arrojan el mismo resultado de 4, 
+		la diferencia es que una no tiene nombre es decir es anónima pero su valor
+		de return es asignado a una variable.*/
+
+
+
+
+</script>
+
+</body>
+</html>
