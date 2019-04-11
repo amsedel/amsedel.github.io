@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Elementos relacionados</title>
+</head>
+<body>
+
+	<div id="app">
+		<div class="header">
+			<h1>Titular</h1>
+		</div>
+		<p>Párrafo de descripción</p>
+		<a href="/">Enlace</a>
+	</div>
+
+
+<script>
+	
+function elementosdom() {
+
+	console.log(document.body.children.length); //1
+	console.log(document.body.children);//[div#app]
+	document.body.parentElement; //<html>
+
+
+	var app = document.querySelector('#app');
+	app.children;
+	app.firstElementChild;
+	app.lastElementChild;
+
+	var a = app.querySelector('a');
+
+	a.previousElementSibling;
+	a.nextElementSibling;
+
+}
+
+elementosdom();
+
+</script>
+
+
+</body>
+</html>

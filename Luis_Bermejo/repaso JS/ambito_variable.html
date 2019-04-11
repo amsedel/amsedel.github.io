@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ambito de variables</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+
+	// var a =1; //a global
+	// console.log(a);
+
+	// function x(){
+	// 	console.log(a); //el valor es  undefined
+	// 	var a = 5; //variable a en nivel función
+
+	// 	console.log(a);  //a es 5 de función
+	// 	console.log(window.a); //a es uno, ed decir global
+	// }
+
+	// x();
+	// console.log(a);
+
+
+//COMO A NO TIENE VAR SE CONSIDERA COMO GLOBAL
+
+	/*var a =1; //a global
+	console.log(a);
+
+	function x(){
+		console.log(a); //el valor es  undefined
+		 a = 5; //variable a en nivel función
+
+		console.log(a);  //a es 5 de función
+		console.log(window.a); //a es uno global
+	}
+
+	x();
+	console.log(a);*/
+
+
+
+////////////////////////////////////////////////////opcion 1
+
+
+// 	function opcion1{
+// 	console.log('Antes: ', p);
+
+// 	for(let p = 0; p<3; p++)
+// 		console.log('- ', p);
+	
+// console.log('Después: ', p); 
+// // Después p queda indefinida porque let solo abarca hasta el for
+// //let se utiliza para codigo en bloque y variables locales
+
+// 	}
+
+// 	opcion1();
+
+
+////////////////////////////////////////////opción 2
+
+// function opcion2{
+
+// 	console.log('Antes: ', p);
+
+// //var lo utilizamos para variables globales
+// 	for(var p = 0; p<3; p++)
+// 		console.log('- ', p);
+	
+// console.log('Después: ', p);
+
+// 	}
+// 	opcion2();
+
+
+	// const NAME = 'ValorConstante';
+	// console.log(NAME);
+	// Name='cambioValor';
+	////error porque no se puede redefinir una constante
+
+
+	//en este caso si se puede modificar, porque estamos apuntando
+	//a un espacio de memoria
+
+	// const user = {name:'Juan'}
+	// user.name = 'Luis';
+	// console.log(user.name);
+
+
+	</script>
+
+</body>
+</html>

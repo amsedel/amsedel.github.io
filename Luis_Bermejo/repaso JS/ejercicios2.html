@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" description="Diana Anahí Ledesma Roque">
+	<title>Ejercicios JS parte 2</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+/*************************************************************************************************************************************/
+		function uno(){
+
+	 var a = [1, 2, 3, 8, 9, 10];
+	 var b = a.slice(0,3).concat([4,5,6,7], a.slice(3,6));
+	 //console.log('amodificada=' + b);
+
+
+	 /*Toma desde el indice cero hasta el elemento 3 del array a y concatena
+	 un segundo array [4,5,6,7] y posteriormente concatena del mismo array
+	 a los elementos del índice 3 al elemento 6 (8,9,10)*/
+	}
+
+	uno();
+
+
+
+/*************************************************************************************************************************************/
+
+			function dos(){
+	var c = [1, 2, 3, 8, 9, 10];
+	c.splice(3,0,...[4,5,6,7]);
+	//console.log('a: ' + c);
+
+	/*splice indica que se apliquen los cambios a partir del 
+	index 3 del array sin quitar ningun elemento y le agregue
+	el segundo array [4,5,6,7]. Si no se ponen los 3 puntos
+	no se agrega el array correctamente*/
+				}
+
+	dos();
+
+/*************************************************************************************************************************************/
+
+
+			function tres(){
+				var array  = ['a','b','c'];
+
+
+				var a1=array.join('->');////coloca el simbolo '->' entre elementos y lo vuelve un string
+				//console.log(a1);
+
+				var a2 = array.join('.'); ////coloca el simbolo '.' entre elementos y los vuelve un string
+				//console.log(a2);
+
+				var a3 = 'a.b.c'.split('.');
+				//console.log(a3);
+
+				var a4 = '5.4.3.2.1'.split('.'); ////quita el símbolo punto, //Especifica el carácter a usar para la separación de la cadena de texto y divide un objeto de tipo String en un array 
+				//console.log(a4);
+
+			}
+	tres();
+
+/*************************************************************************************************************************************/
+
+
+
+			function cuatro(){
+
+				var array = [5,10,15,20,25]
+
+				var ar1 = Array.isArray(array); 
+				//nos devuelve un true porque la función pregunta si el valor que le pasamos es un array.
+				// console.log(ar1);
+
+
+				var ar2 = array.includes(10); 
+				// con includes vemos si se incluye el valor que le pasamos  en el array, regresa true si encuentra el valor
+				// console.log(ar2);
+
+
+				var ar3 = array.includes(10, 2); 
+				//retorna un false, debido a que includes busca en el array dos valores iguales a 10, pero como solo encuentra
+				//uno, retorna false
+				// console.log(ar3);
+
+				var ar4 = array.indexOf(25);
+				//nos devuelve el indice o posición del parámetro que le pasamos.
+				// console.log(ar4);
+
+				var ar5 = array.lastIndexOf(10, 0);
+				//lastIndexOf busca el número 10 a partir del índice que le pasamos, en este caso el '0', sin embargo la busqueda
+				//que realiza la hace en sentido contrario. En este caso la consola regresa -1, porque no encuentra el número. Pero
+				//por ejeplo si le decimos que inicie en el indice 3, encontraría el valor y retornaría su posición que en este caso es 
+				//la 1;
+				// console.log(ar5);
+
+			}
+	cuatro();
+
+/*************************************************************************************************************************************/
+
+
+
+			function cinco(){
+
+				var array = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+				ar1 = array.copyWithin(5,0,1); 
+				//console.log(ar1);
+
+				ar2 = array.copyWithin(3,0,3);
+				//transfiere una copia de una sección a otra dentro del mismo array
+				//(indice en donde se inserta la copia, inicio, fin)
+				//console.log(ar2);
+
+				ar3 = array.fill('Z', 0 , 5); //en consola se muestra [ z z z z z f]
+				//(valor , inicio, fin)
+				//ellena todos los elementos de un arreglo desde el índice start hasta el índice end, con el valor estático de value
+ 				//console.log(ar3);
+			}
+	cinco();
+
+/*************************************************************************************************************************************/
+
+
+			function seis(){
+
+				var array = ['Alberto','Ana','Mauricio','Bernardo', 'Zoe'];
+
+				//cada línes está modificando el array original
+
+				var e = array.sort(); //ordena los valores de array
+				//console.log(e);
+				var e2 =array.reverse();//ordena los valores de array pero lo invierte
+				//console.log(e2);
+
+			}
+	seis();
+
+/*************************************************************************************************************************************/
+
+/*1.- Tiene dos arreglos de String, ‘clientes’ y ‘empleados’, y deseas combinarlas para crear un arreglo de contactos. ¿Qué método sería el más adecuado para esta tarea?*/
+//1.-concat
+//2.- join
+//3.-push
+//4.-splice
+
+
+/*Yo escogería concat. ya que este método se usa para unir dos o más arrays. Este método no cambia los arrays existentes, sino que devuelve un nuevo array*/
+
+
+/*************************************************************************************************************************************/
+
+/*2.- Teniendo el siguiente arreglo y función, agrega una variable para alojar el resultado de la función filter() y explica cual es el resultado.*/
+
+var numbers = [5, 32, 43, 4];
+
+var modulo = numbers.filter(function(n) { 
+	return n % 2 !== 0; 
+});
+
+//console.log(modulo); //la respuesta en consola es [5, 43]
+
+
+//esta función lo que hace es que filtra el array numbers. Itera todos los valores de numbers y ejecuta la operación módulo de los valores del array, entre el número 2. Por ejemplo el resultado de 4%2 = 0. Sin embargo se pide retornar aquellos valores que su 
+//módulo es diferente de cero
+
+/*************************************************************************************************************************************/
+
+
+/*3.-Dado el siguiente arreglo de objetos, Genera la función en javascript que filtre a las personas menores de 35 años.*/
+
+var people = [
+			{  id: 1,  name: "John",  age: 28 }, 
+			{  id: 2,  name: "Jane",  age: 31}, 
+			{  id: 3,  name: "Peter", age: 55 }   ];
+
+			//const personasMenor35 = ({age}) => age <35;
+
+			const personasMenor35 = function(people){
+				 //var age = people.age ;
+				 return age <35;
+			}
+
+
+	var personas = people.filter(personasMenor35);
+
+	console.log(personas);
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

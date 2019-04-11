@@ -1,0 +1,126 @@
+@charset "utf-8";
+*{
+	margin: 0;
+	font-family: Arial, serif;
+}
+.solo{
+	margin-left: auto;
+	margin-right: auto;
+	left:0;
+	right:0;
+
+	margin-top: auto;
+	margin-bottom: auto;
+	top:0;
+	bottom:0;
+
+	background: #a2a2a2;
+	width: 870px;
+	height: 520px;
+	z-index: 1;
+	position: absolute;
+
+}
+.container{
+	display: grid;
+	/*grid-template: minmax(300px 50vh) / minmax(250px 30vw) minmax(300px 40vw);*/
+	grid-template: 	500px / 350px 500px;
+	height: 100vh;
+	grid-template-areas: "contacto mensaje";
+	 /*box-shadow: 2px 2px 5px #999;*/
+	justify-content: center;
+	align-content: center;
+	z-index: 2;
+}
+
+.contacto{
+	/*decirle a mi contenido que area ocupar*/
+	z-index: 2;
+	grid-area: contacto;
+	background: #6393eb;
+	color: white;
+	text-align: center;
+	/*border:1px solid black;*/
+	border-radius: 15px 0px 0px 15px;
+	padding: 10%;
+}
+
+.mensaje{
+	/*decirle a mi contenido que area ocupar*/
+	grid-area: mensaje;
+	background: white;
+	border:1px solid transparent;
+	border-radius:  0px 15px 15px 0px;
+	z-index: 2;
+}
+
+h1{
+	text-transform: uppercase;
+	padding-top: 45%;
+	font-size: 1.9em;
+}
+
+p {
+	font-size: .9em;
+}
+
+.puno{
+	padding-top: 12%;
+	font-weight: bold;
+}
+
+.pdos{
+	padding-top: 5%;
+	font-weight: bold;
+}
+
+
+h1 span{
+	text-align: center;
+}
+
+h2{
+	padding-top:8%;
+	padding-left: 5%;
+	font-weight: lighter;
+	font-size: 1.6em;
+}
+
+form{
+	padding-top:5%;
+	padding-left: 5%;
+}
+input, textarea{
+	display: block;
+	border-left: none;
+	border-right:none;
+	border-top: none;
+	border-bottom:2px solid #c2c2c2;
+	padding-top: 4%;
+	width: 95%;
+	margin-bottom: 6%;
+	-webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+    -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+	box-sizing: border-box;
+}
+
+input:focus, textarea:focus{
+	border: 2px solid #6393eb;;
+}
+
+input[type="submit"]{
+	border-radius: 15px;
+	width: 30%;	
+	text-align: center;
+	padding: 8px;
+	color: white;
+	background: #6393eb;
+	font-weight: bold;
+	top:20%;
+	position: relative;
+	left: 65%;
+}
+label{
+	font-size: .8em;
+	font-weight: bold;
+}

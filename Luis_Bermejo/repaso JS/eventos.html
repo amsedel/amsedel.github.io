@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eventos</title>
+</head>
+<body>
+
+	<div>
+		<img src="orange.jpeg" alt="texto" onclick="updateCounter(event)">
+		<p>Has hecho click a la imagen <span id="num">0</span> veces.</p>
+	</div>
+
+	<fieldset id="app">
+		<label>hola</label>
+		<div>inicial</div>
+	</fieldset>
+
+
+<script type="text/javascript">
+
+
+	 var contadorClick = 0;
+
+	 function updateCounter(e){
+	 		 console.log(e);
+	 		 console.log(e.detail);
+	 		 console.log('contador' + contadorClick);
+	 		 contadorClick++;	
+	 		 document.querySelector('#num').textContent = e.detail;
+	 }
+
+	 var element = document.getElementById('num');
+	 console.log(element);
+	 console.log(element.nodeName);
+	 console.log(element.textContent);
+	 console.log(element.innerHTML);
+	 console.log(element.outerHTML);
+
+	 var div = document.createElement('div');
+	 div.textContent = 'Esto es un div insertado con JS'; 
+
+	 var app = document.querySelector('#app');
+	 app.appendChild(div);
+
+
+
+ 	 var div2 = document.createElement('div');
+ 	 var div3 = document.createElement('div');
+ 	 var div4 = document.createElement('div');
+ 	 var div5 = document.createElement('div');
+
+	 div2.textContent = 'Esto es un div insertado con beforebegin'; 
+	 div3.textContent = 'Esto es un div insertado con afterbegin'; 
+	 div4.textContent = 'Esto es un div insertado con beforeend'; 
+	 div5.textContent = 'Esto es un div insertado con afterend'; 
+
+
+	 app.insertAdjacentElement('beforebegin', div2);
+	 app.insertAdjacentElement('afterbegin', div3);
+	 app.insertAdjacentElement('beforeend', div4);
+	 app.insertAdjacentElement('afterend', div5);
+
+
+	 app.insertAdjacentHTML('beforebegin', '<div id="app2"></div>');
+	 app.insertAdjacentText('beforebegin' , 'hola a todos');
+
+
+
+</script>
+</body>
+</html>

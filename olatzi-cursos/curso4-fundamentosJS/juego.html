@@ -68,6 +68,11 @@
       .hide {
         display: none;
       }
+
+      *{
+        font-family: Arial;
+      }
+
     </style>
   </head>
   <body>
@@ -78,6 +83,7 @@
       <div id="verde" class="color verde right" data-color="verde"></div>
       <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
 
       const btnEmpezar = document.getElementById('btnEmpezar');
@@ -92,7 +98,9 @@
         constructor(){
           this.inicializar();
           this.generarSecuencia();
+          this.inicializar = this.inicializar.bind(this);
           setTimeout(this.siguienteNivel, 500);
+
         }
 
         generarSecuencia(){
@@ -112,7 +120,7 @@
           //siguienteNivel siempre va a estar atada al juego
           //*tengo la teoria de que cada vez que se realiza una tarea asincrona se pierde el this por el window
 
-          btnEmpezar.classList.add('hide');
+          this.toggleBtnEmpezar();
           this.nivel = 1;
           //guardando los colores
           this.colores = {
@@ -121,6 +129,15 @@
             violeta,
             naranja,
             verde 
+          }
+        }
+
+        toggleBtnEmpezar(){
+          if(btnEmpezar.classList.contains('hide')){
+            //si ya tiene la clase hide
+            btnEmpezar.classList.remove('hide');
+          }else {
+            btnEmpezar.classList.add('hide');
           }
         }
 
@@ -207,6 +224,7 @@
               this.eliminarEventosClick();
               if (this.nivel ===(ULTIMO_NIVEL + 1)){
                 //ganó
+                this.ganoElJuego();
               }else{
                 //tene que avanzar al siguiente nivel
                 setTimeout(this.siguienteNivel, 1500);
@@ -215,9 +233,29 @@
             }
           }else{
             //perdió
+            this.perdioElJuego();
           }
         }
 
+        ganoElJuego(){
+          //swal usa y devuelve promesas
+          swal('Platzi', 'Felicitaciones, ganaste el juego', 'success')
+          .then(()=>{
+            this.inicializar();
+          });
+          //la línea de arriba es equivalente a:
+          //.then(this.inicializar);
+        }
+
+          perdioElJuego(){
+          //swal usa y devuelve promesas
+          swal('Platzi', 'Lo lamentamos, perdiste', 'error')
+          .then(()=>{
+            this.eliminarEventosClick();
+            this.inicializar();
+            //this.inicializar().bind(this)
+          })
+        }
 
 
       }//cierre class

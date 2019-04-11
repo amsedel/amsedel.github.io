@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrays</title>
+</head>
+<body>
+
+<script type="">
+	
+	//arrays 
+
+
+	// var a = new Array(3); //define el tamaño del array, lo muestra vacío en consola
+	// var b = [2]; // un array con un elemento que es igual a dos
+
+
+
+	//metodos, push, concat, pop, unshift, shift, 
+	//slice, splice,  
+	//reverse, sort(sobre cadenas), sort(func)
+
+	//var array = ['a','b','c'];
+
+	//array.push('d'); ////agrega al final el elemento
+
+	 //array.pop(); ////elimina el ultimo elemento
+
+	 //array.unshift('Z'); ////agraga al principio el elemento
+	 //array.shift(); ////elimina el primer elmento
+
+	 //var array2 = [1,2,3];
+	 //array2.push(4,5,6);
+	// array2.push([7,8,9]);
+
+	// var array2 = [1,2,3];
+	// array2 = array2.concat(4,5,6);
+	// array2 = array2.concat([7,8,9]);
+
+
+
+	var array3 = ['a','b','c','d','e','f'];
+	//slice no modifica el array, hace una copia del index 2 hasta antes del 4
+	//copia = array3.slice(2,5);
+
+	//splice si modifica el array, a partir del elemento 2, y 
+	// considera 3 elementos, muestra : [a,b,f]
+	var a = array3.splice(2,3);
+	console.log(a)
+	// var b = array3.splice(1,0,'z','x');
+	// console.log(b)
+	// //splice(start, deletecount, item), elimina o agrega elementos
+
+	// var months = ['Jan', 'March', 'April', 'June'];
+	// months.splice(1, 0, 'Feb');
+	// // inserts at 1st index position
+	// console.log(months);
+	// // expected output: Array ['Jan', 'Feb', 'March', 'April', 'June']
+
+	// months.splice(4, 1, 'May');
+	// // replaces 1 element at 4th index
+	// console.log(months);
+	// // expected output: Array ['Jan', 'Feb', 'March', 'April', 'May']
+
+
+
+	//caso de ordenación sort
+
+	// var arraysort = [1,8,2,32,9,7,4]
+	// arraysort.sort(); //devuelve [1, 2, 32, 4, 7, 8, 9]
+
+
+
+
+	//que pasa aquí?????????
+
+					// var arrays2 = [1,8,2,32,9,7,4];
+
+					// var fc = function(a , b){
+					// 	return a - b;
+
+					// 			}
+
+					// 	arrays2.sort(fc);
+
+					// var arr = [2,3,9,54,6,1];
+
+					// var fc = function(a , b){
+						
+					// 	if(a>b){
+					// 		return 1;
+					// 	}else if(a<b){
+					// 		return -1;
+					// 	}
+					// 	return 0;
+
+					// 			}
+
+					// 	console.log(arr.sort(f));
+
+
+
+</script>
+
+</body>
+</html>
