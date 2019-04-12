@@ -178,25 +178,140 @@ var people = [
 			{  id: 2,  name: "Jane",  age: 31}, 
 			{  id: 3,  name: "Peter", age: 55 }   ];
 
-			//const personasMenor35 = ({age}) => age <35;
+		function filtroEdad(){
 
+			//const personasMenor35 = ({age}) => age <35;
 			const personasMenor35 = function(people){
 				 //var age = people.age ;
-				 return age <35;
+				 return people.age <35;	
+				}
+			var personas = people.filter(personasMenor35);
+			console.log(personas);
+		}
+
+		//filtroEdad();
+
+/*4.-Dado el siguiente arreglo de objetos, Genera la función para obtener el numero de veces que aparece cada nombre.*/
+
+
+		var people2 = [
+					 	{ name: "bob",  id:1 },
+					 	{ name: "john", id:2 }, 
+					 	{ name: "alex", id:3 }, 
+					 	{ name: "john", id:3 },
+					 	{ name: "jhon", id:3 },
+					 	{ name: "john", id:3 }];
+
+		function nombreRepetido(nombre){
+			var nombre =nombre
+			var count = 0;
+			var pushPeople = [];
+				for(var h = 0; h<people2.length; h++){
+				 pushPeople.push(people2[h].name)}
+
+				 for(var y = 0; y<people2.length; y++){
+				 	if(pushPeople[y] === nombre){
+				 		 count++;
+				 	}else{
+				 		continue;
+				 	}
+				 }
+
+				 return count;
 			}
-
-
-	var personas = people.filter(personasMenor35);
-
-	console.log(personas);
+				 console.log(nombreRepetido("bob"));
 
 
 
+	// 	var pushPeople = [];
+	// 	var objetos[];
+
+	// 		var counta = 0;
+	// 		var dif = '';
+			
+	// 			for(var h = 0; h<people2.length; h++){ //hacer un array de names, obtenidos del array de objetos
+	// 			 pushPeople.push(people2[h].name)}
+
+	// var narray = [];
+	// 			 var arraySinRepeticiones = pushPeople.filter(function(value, index, self){ 
+ //    			return self.indexOf(value) === self.lastIndexOf(value);
+ // 				 });
+ 				
+ // 				 	for(var d= 0; d<pushPeople.length; d++){
+
+ // 				 	if(pushPeople.indexOf(pushPeople[d])!== pushPeople.lastIndexOf(pushPeople[d],pushPeople.length-1)){
+ // 				 		if(dif != pushPeople[d]){
+ // 				 			counta++;
+ // 				 			if(counta<1){
+ // 				 			narray.push(pushPeople[d]); 	
+ // 				 		}			 		
+ // 						}
+ 						
+ // 					}
+ // 				}
+
+ // 				var arrayn = arraySinRepeticiones.concat(narray);
+ 				
 
 
+/*5.-Dado el siguiente arreglo, Genera la función para imprimir en consola el numero máximo y el numero mínimo.*/
 
+let myArray = [1, 2, 3, 4];
 
+	function minmax(myArray1){
+					var miArray = myArray;
+					//var myArray = [1, 2, 3, 4];
+					var fc = function(a , b){
+						
+						if(a>b){
+							return 1;
+						}else if(a<b){
+							return -1;
+						}
+						return 0;
+								}
+					myArray.sort(fc);  //console.log(myArray.sort(fc));
+					return `El Número mínimo es ${myArray[0]} y el número máximo es ${myArray[myArray.length-1]}`;
+				}
 
+//	console.log(minmax(myArray));
+
+//6. Teniendo el siguiente objeto, Generar la función para pasar cada elemento ‘key’ a un arreglo y ordenarlos según su valor.
+
+			var object = {     
+							key1: 10,    
+							key2: 3,    
+							key3: 40,    
+							key4: 20 };
+
+		function objetoAArreglo(object){
+			let objeto = object;
+			var string1 = "";
+			var t4Int = [];
+
+			for (var property1 in objeto) //bucle for-in itera sobre las propiedades del objeto
+  			string1 += objeto[property1] + '.';
+			
+			var t4 = string1.split('.');
+			var t5=t4.pop();
+
+			for(var l=0; l<t4.length; l++)
+				t4Int.push(parseInt(t4[l]));
+			
+			var fc = function(a , b){
+						
+						if(a>b){
+							return 1;
+						}else if(a<b){
+							return -1;
+						}
+						return 0;
+								}
+					t4Int.sort(fc);
+
+			console.log(t4Int); 
+		}
+		objetoAArreglo(object);
 
 </script>
 

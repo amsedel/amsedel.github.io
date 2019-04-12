@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Tabla dinámica</title>
+	<style type="text/css">
+		
+table{
+	border: 3px solid black;
+	text-align: center;
+	border-spacing: 0px;
+}
+
+th,td{
+	padding: 0px 10px;
+
+}
+
+td{
+	background-color: #f8f8f8;
+}
+
+thead{
+	background-color: lightblue;
+	font-weight: bold;
+}
+
+tfoot td{
+	background-color: lightgreen;
+	font-weight: bold;
+}
+
+		
+	</style>
+</head>
+<body>
+
+<table border>
+		<thead>
+			<tr>
+			<th>Persona Id</th>
+			<th>Name</th>
+			<th>City</th>
+			<th>Phone</th>
+			</tr>
+		</thead>
+			<tbody id="cuerpo" class="cuerpo">
+				<tr id="trs"></tr>
+			</tbody>
+
+	</table>
+
+
+	<script type="text/javascript">
+		
+		var Arr =[
+
+			{
+				personId : 123,
+				name : "Jhon",
+				city : "Melbourne",
+				phoneNo: "1234567890"
+			},
+			{
+				personId : 124,
+				name : "Amelia",
+				city : "Sydney",
+				phoneNo: "1234567890"
+			},
+
+			{
+				personId : 125,
+				name : "Emily",
+				city : "Perth",
+				phoneNo: "1234567890"
+			},
+			{
+				personId : 126,
+				name : "Abraham",
+				city : "Perth",
+				phoneNo: "1234567890"
+			}
+
+		];
+
+			var tamanioArray = Arr.length;
+			var elemenTBody = document.getElementById('cuerpo');
+
+			var elemtr = [];
+			var elemtc = [];
+			var r = [];
+			var string1 = new Array(1);
+
+
+			//for para sacar datos
+			for(var v = 0; v<tamanioArray; v++){
+
+				for (var propiedades in Arr[v])
+				string1.push(Arr[v][propiedades]);
+			}
+
+				r.push(string1.slice(1,5))
+				r.push(string1.slice(5,9))
+				r.push(string1.slice(9,13))
+				r.push(string1.slice(13,17))
+
+				//Generación de elementos dinámicos
+
+			for(var b = 0; b<tamanioArray; b++){
+				elemtr[b]= document.createElement('tr');
+				elemenTBody.appendChild(elemtr[b])
+
+			for(var a = 0; a<4; a++){
+				elemtc[a]= document.createElement('td');
+				console.log(elemtc[a].textContent = r[b][a]);
+				elemtr[b].appendChild(elemtc[a]);
+			}
+			}
+			console.log(string1);
+
+			
+
+	</script>
+
+
+
+
+
+
+</body>
+</html>

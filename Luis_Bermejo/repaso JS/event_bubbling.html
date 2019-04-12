@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Even Bublling</title>
+
+
+	<script>
+		
+		function procesaEvento(elemento, e){
+			console.log('evento click');
+			console.log(elemento);
+			console.log(e);
+		}
+
+		
+
+	</script>
+</head>
+<body onclick="procesaEvento(this,event)">
+
+	<div onclick="procesaEvento(this,event)">Click Aquí</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eventos personalizados</title>
+</head>
+<body>
+
+	<div id="div_pincipal">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+
+	<script type="text/javascript">
+		
+
+		function muestraMensaje(){
+			console.log("Has realizado click en el ratón");
+		}
+
+		var el Div = document.getElementById("div_pincipal");
+		elDiv.addEventListener("click", muestraMensaje, false);
+
+
+		//desasociar la función al evento, remover eventos
+		//elDiv.removeEventListener("click", muestraMensaje,false);
+
+
+
+		var event = new Event ('build');
+
+		//elDiv = addEventListener('build',function)
+
+
+	</script>
+
+</body>
+</html>

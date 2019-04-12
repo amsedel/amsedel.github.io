@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio Eventos</title>
+
+	<style type="text/css">
+		
+		*{font-size: 1.1em;}
+
+		li{
+			padding: 15px;
+			list-style: none;
+		}
+
+		li:hover{
+			cursor: pointer;
+			text-decoration: underline;
+			font-size: 1.5em;
+		}
+
+		li:active{
+			background: #a2a2a2;
+			width: 9%;
+		}
+
+	</style>
+</head>
+<body>
+
+	<section>
+		<ul>
+			<li id="C1" data-id ="US" data-dialcode="1" onclick="muestraInfo('C1')">USA</li>
+			<li id="C2" data-id ="CA" data-dialcode="1" onclick="muestraInfo('C2')">Canada</li>
+			<li id="C3" data-id ="FF" data-dialcode="3" onclick="muestraInfo('C3')">France</li>
+		</ul>
+	</section>
+
+
+	<script type="">
+
+		muestraInfo=(e)=>{
+		var id = document.getElementById(e);
+		var id_ = id.getAttribute('id');
+		var idd = id.dataset.id;
+		var dial = id.dataset.dialcode;
+		alert(` ID elemento: ${id_}  \n ISO ID: ${idd} \n Dial Code: ${dial}`)
+		}		
+
+
+	</script>
+
+</body>
+</html>
