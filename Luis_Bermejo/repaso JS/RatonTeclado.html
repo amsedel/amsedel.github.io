@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" description="Diana Anahí Ledesma Roque">
+	<title>Eventos con el Ratón y el teclado</title>
+	<style type="text/css">
+		*{
+			font-family: Arial, serif;
+			margin: 0;
+		}
+		section{
+			width: 355px;
+			margin: 0 auto;
+			padding: 10%;
+		}
+		fieldset{
+		margin: 5%;
+		background: #e2e2e2;
+		}
+		h2{
+			padding: 5px;
+		}
+		output{
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+
+	<section>
+		<fieldset>
+			<h2>Ratón</h2>
+			<label>Coordenadas página:</label>
+			<label>X: </label>
+			<output id="px"></output>
+			<label>Y: </label>
+			<output id="py"></output>
+			<br>
+			<label>Coordenadas navegador: </label>
+			<label>X: </label>
+			<output id="pxn"></output>
+			<label>Y: </label>
+			<output id="pyn"></output>
+			<output id="raton"></output>
+		</fieldset>
+		<fieldset>
+			<h2>Teclado</h2>
+			<label>Carácter: </label>
+			<output id="teclado" class="char"></output>
+			<br>
+			<label class="d">Key code: </label>
+			<output id="tecladoKey"></output>
+		</fieldset>
+	</section>
+
+	<script type="text/javascript">
+		
+		document.addEventListener('keydown', eventoTeclado);
+		document.addEventListener('mousemove', eventoMouse);
+
+		function eventoMouse (event){
+			var mx = document.getElementById('px');
+			mx.textContent = event.x;
+			var my = document.getElementById('py');
+			my.textContent = event.y;
+
+			var mxn = document.getElementById('pxn');
+			mxn.textContent = event.screenX;
+			var myn = document.getElementById('pyn');
+			myn.textContent = event.screenY;
+			//console.log(event);
+		}
+
+		function eventoTeclado(event){
+		var teclas = document.getElementById('teclado');
+		var teclasKey = document.getElementById('tecladoKey');
+		teclas.textContent = event.key;
+		teclasKey.textContent = event.keyCode;
+
+		//	console.log(teclas);
+		//	console.log(event);
+		}
+
+
+	</script>
+
+</body>
+</html>

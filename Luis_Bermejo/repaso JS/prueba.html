@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prueba</title>
+</head>
+<body>
+<input type="button" name="btn" id="btn" onclick="enviar();" value="Enviar">
+<input type="text" name="name" id="name" value="Diana">
+<script type="text/javascript">
+
+
+	//OK
+	/*var nam = document.getElementById('name');
+	nam.addEventListener('build', setMessage);
+	var myEvent = new CustomEvent('build', {detail:document.getElementById('name').id});
+
+function enviar(){
+nam.dispatchEvent(myEvent);
+}
+
+
+function setMessage (mensaje){
+	console.log(myEvent.detail);
+	alert('hola' + myEvent.detail);
+}*/
+
+
+				// var narray = [];
+				//  var arraySinRepeticiones = pushPeople.filter(function(value, index, self){ 
+    // 			return self.indexOf(value) === self.lastIndexOf(value);
+ 			// 	 });
+
+
+		var people2 = [
+					 	{ name: "bob",  id:1 },
+					 	{ name: "john", id:2 }, 
+					 	{ name: "alex", id:3 }, 
+					 	{ name: "john", id:3 },
+					 	{ name: "jhon", id:3 },
+					 	{ name: "john", id:3 }];
+
+		var people3 = { name: "bob",  id:1 }
+
+			let objeto = people3;
+			var string1 = "";
+			var arrayName = [];
+
+			
+			for(var a = 0; a<people2.length; a++){
+			for (var property in people2[a]) //bucle for-in itera sobre las propiedades del objeto
+  	 		string1 += people2[a].name[property];
+  			}
+
+
+
+		//function repetidos(persona){
+			// return {
+			// 	...persona,
+			// 	id:4
+			// }	
+
+
+			function myfunction2(value,index, self){
+
+				console.log(people2.indexOf(value.name))
+				// if(value.name.indexOf(value)!= -1){
+				// 	var n = people2.name.push();
+				// 	console.log(n);
+				// 	}
+				
+			}
+
+		//	var newArray = people2.filter(myfunction2);
+		//}
+
+
+		//var array = people2.map(repetidos);
+
+
+
+
+
+
+</script>
+</body>
+</html>

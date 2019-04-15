@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" description="Diana Anahí Ledesma Roque">
+	<title>Calculadora</title>
+	<!-- <link rel="stylesheet" type="text/css" href="calculadora.css"> -->
+	<style type="text/css">
+		html{
+	margin: 0;
+	padding: 5% 0;
+	font-family: Arial, serif;
+}
+
+table { 
+    border-spacing: 0px;
+    /*border-collapse: separate;*/
+    margin: 0 auto;
+    /*padding: 10% 0;*/
+    font-weight: bold;
+	font-size: 1.8em;
+	background: #f1f1f1;
+	border: 2px solid gray;
+}
+
+thead th{
+	text-align: right;
+	color: white;
+	background: #545557;
+	font-size: 1.8em;
+	font-weight: lighter;
+	height: 70px;
+}
+
+th, td { 
+	width: 40px;
+	height: 30px;
+	text-align: center;
+    padding: 1.5vw;
+}
+td:hover{
+	cursor: pointer;
+}
+thead th{
+	padding-bottom: 0;
+	padding-top: .5vw;
+	border-top: hidden;
+}
+.inputOutputGray{
+	height: 30px;
+	padding: .5vw;
+	border-bottom: none;
+	font-size: .9em;
+	color: #b0b0b0;
+}
+
+td:last-child{
+	background-color: orange;
+	color: white;
+}
+
+td:hover{
+	background: rgba(0,0,0,0.1);
+}
+
+td:active{
+     box-shadow: inset 0px 0px 0px 3px #919191;
+}
+td [colspan="2"]{
+	text-align: left;
+}
+	</style>
+
+</head>
+<body>
+
+	<table border cellspacing="0">
+		<thead>
+			<tr>
+				<th colspan="4" id="inputOutputGray" class="inputOutputGray"></th>
+			</tr>
+			<tr>
+				<th colspan="4" id="inputOutput">0</th>
+			</tr>
+		</thead>
+			<tr>
+				<td id="ac" onclick="reset();">AC</td>
+				<td id="masmenos" onclick="getValue('+/-');">+/-</td>
+				<td onclick="getValue('%');">%</td>
+				<td onclick="getValue('/');">÷</td>
+			</tr>
+			<tr>
+				<td id="siete" onclick="viewValue('7');">7</td>
+				<td id="ocho" onclick="viewValue('8');">8</td>
+				<td id="nueve" onclick="viewValue('9');">9</td>
+				<td onclick="getValue('*');">×</td>
+			</tr>
+			<tr>
+				<td id="cuatro" onclick="viewValue('4');">4</td>
+				<td id="cinco" onclick="viewValue('5');">5</td>
+				<td id="seis" onclick="viewValue('6');">6</td>
+				<td onclick="getValue('-');">-</td>
+			</tr>
+			<tr>
+				<td id="uno" onclick="viewValue('1');">1</td>
+				<td id="dos" onclick="viewValue('2');">2</td>
+				<td id="tres" onclick="viewValue('3');">3</td>
+				<td id="suma" onclick="getValue('+');">+</td>
+			</tr>
+			<tr>
+				<td colspan="2" id="cero" onclick="viewValue('0');">0</td>
+				<td id="punto" onclick="viewValue('.');"> . </td>
+				<td id="resultado" onclick="getValue2('resultado');">=</td>
+			</tr>
+	</table>
+
+	<script type="text/javascript">
+
+		var cifra=0, countSuma = 0, countResta = 0, countMulti=0, countDiv=0, countPor=0, countMasMenos=0;
+		var num2;
+		var valores= {
+				operacion : '',
+				operA : '',				
+				operB : ''
+				}
+
+		var eventClean = new Event('cleanScreen');
+		var eventOperation = new Event('operation');
+
+		ac.addEventListener('cleanScreen', cleanView);
+		var inOut= document.getElementById('inputOutput');
+		var inOutGrey = document.getElementById('inputOutputGray');
+
+		//para que no exista un reseteo del número al introducir otro número
+		//introduje un contador cifra, que se resetea cada que el usuario
+		//introduce un signo de operación
+
+		function viewValue(numero){
+			if(cifra===0){
+			inOut.textContent =numero;
+			num2 = numero;
+			cifra++;
+			}else{
+			num2 = num2.concat(numero);
+			inOut.textContent =num2;
+			cifra++;
+			}		
+		}
+
+		//esta función sirve para resolver el problema de las operaciones en serie, sin que el usuario
+		//ejecute un igual
+		//estos contadores son para la operación inmediata a la primera, ya que por ejemplo
+		//si el usuario suma por primera vez countSuma=1, pero si después el usuario, realiza 
+		//otra operación, el programa no la reconozca como la primera operación y paresca que aun falta 
+		//introducir el parámetro B
+		function getValue(signo){
+			var valueA = document.getElementById('inputOutput');
+			valores.operacion=signo;
+			cifra=0;
+			if (signo =='+') {
+				countSuma++;
+			}
+			if (signo=='-') {
+				countResta++;
+			}
+			if (signo=='*') {
+				countMulti++;
+			}
+			if (signo=='/') {
+				countDiv++;
+			}
+			if (signo=='%') {
+				valores.operA = valueA.textContent;
+				countPor++;
+			}
+			if (signo=='+/-') {
+				valores.operA = valueA.textContent;
+				countMasMenos++;
+			}
+			console.log(valores);	
+
+			if((countSuma>1 || (countResta>=1 || countMulti>=1 || countDiv>=1 || countPor>=1 || countMasMenos>=1)) && 
+			   (countResta>1 || (countSuma>=1 || countMulti>=1 || countDiv>=1 || countPor>=1 || countMasMenos>=1)) && 
+			   (countMulti>1 || (countSuma>=1 || countResta>=1 || countDiv>=1 || countPor>=1 || countMasMenos>=1)) &&
+			   (countDiv>1 || (countSuma>=1 || countResta>=1 || countMulti>=1 || countPor>=1 || countMasMenos>=1)) ){
+
+				var valueB = document.getElementById('inputOutput');
+				valores.operB=valueB.textContent;
+				//operacion();
+				valueB.addEventListener('operation',operation);
+				valueB.dispatchEvent(eventOperation);
+			}else{
+				valores.operA = valueA.textContent;				
+			}
+
+			//console.log(valores);
+
+		}
+
+		//Al dar un igual, se resetean todos los contadores, y se establece el valor del parámetro B
+
+		function getValue2(resultado){
+			cifra=0;
+			countSuma = 0; countPor=0; countMulti=0;
+			countResta = 0; countDiv=0; countMasMenos=0;
+			var valueB = document.getElementById('inputOutput');
+			valores.operB = valueB.textContent;
+			//operacion();
+			valueB.addEventListener('operation',operation);
+			valueB.dispatchEvent(eventOperation);
+
+		}
+
+		//se hace un cambio de tipo de variable, ya que los valores ingresados vienen en formato string
+		//luego se compara la operación que el usuario desea y se mandan llamar las funciones, encargadas de
+		//tales operaciones
+		function operation(){
+			var a = parseFloat(valores.operA);
+			var b = parseFloat(valores.operB);
+			if(valores.operacion == '+'){
+				var eventSuma = new CustomEvent('sumar', {detail:{Pa:a, Pb:b}});
+				valores.operacion.addEventListener('sumar', suma())
+				this.dispatchEvent(eventSuma);
+				//valores.operacion
+				//console.log(this)
+				suma(a,b);
+			}else if(valores.operacion == '-'){
+				resta(a,b);
+			}else if(valores.operacion == '*'){
+				multiplicacion(a,b);
+			}else if(valores.operacion == '/'){
+				division(a,b);
+			}else if(valores.operacion == '%'){
+				porcentaje(a,b);
+			}else if(valores.operacion == '+/-'){
+				masMenos(a,b);
+			}
+		}
+
+		function suma(a,b){
+			var r = a+b;
+			valores.operA = r;
+			var result = document.getElementById('inputOutput');
+			result.textContent = r;
+			console.log(r);
+			return r;
+		}
+
+		function resta(a,b){
+			var r = a-b;
+			valores.operA = r;
+			var result = document.getElementById('inputOutput');
+			result.textContent = r;
+			console.log(r);
+			return r;
+		}
+
+		function multiplicacion(a,b){
+			var r = a*b;
+			valores.operA = r;
+			var result = document.getElementById('inputOutput');
+			result.textContent = r;
+			console.log(r);
+			return r;
+		}
+
+		function division(a,b){
+			var r = a/b;
+			r = r.toFixed(3);
+			valores.operA = r;
+			var result = document.getElementById('inputOutput');
+			result.textContent = r;
+			console.log(r);
+			return r;
+		}
+
+		function porcentaje(a,b){
+			var r = a/100;
+			r = r.toFixed(3);
+			valores.operA = r;
+			var result = document.getElementById('inputOutput');
+			result.textContent = r;
+			console.log(r);
+			return r;
+
+		}
+
+		function masMenos(a,b){
+			var r = a*(-1);
+			valores.operA = r;
+			console.log(r);
+			var result = document.getElementById('inputOutput');
+			result.textContent = r;
+			console.log(r);
+			return r;
+		}
+
+		function reset(){
+			cifra=0;
+			countSuma = 0;
+			countResta = 0;
+			ac.dispatchEvent(eventClean);
+		}
+
+		function cleanView(){
+			var rst = document.getElementById('inputOutput');
+			rst.textContent ='0';
+		}
+
+	</script>
+
+
+</body>
+</html>
