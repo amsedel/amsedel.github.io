@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+//clase padre
+class Forma {
+	constructor(){
+		console.log('Soy una forma geomètrica');
+	}
+
+	gritar(){
+		console.log('YEP!!');
+	}
+}
+
+///clases hijas
+
+class Cuadrado extends Forma{
+	constructor(){
+		super();
+		console.log('Soy un cuadrado');
+	}
+}
+
+class Circulo extends Forma{
+	constructor(){
+		super();
+		console.log('Soy un círculo');
+	}
+}
+
+class Triangulo extends Forma {
+	constructor(){
+		super();
+		console.log('Soy un triángulo');
+	}
+}
+
+var c1 = new Circulo();
+c1.gritar();
+
+var t1 = new Triangulo();
+t1.gritar();
+
+
+
+	</script>
+
+</body>
+</html>

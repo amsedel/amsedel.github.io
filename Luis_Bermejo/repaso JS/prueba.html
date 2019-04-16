@@ -10,25 +10,22 @@
 
 
 	//OK
-	/*var nam = document.getElementById('name');
-	nam.addEventListener('build', setMessage);
-	var myEvent = new CustomEvent('build', {detail:document.getElementById('name').id});
+	// var nam = document.getElementById('name');
+	// nam.addEventListener('build', setMessage);
+	// var myEvent = new CustomEvent('build', {detail: {identificador :document.getElementById('name').value, s:'ola'}});
 
-function enviar(){
-nam.dispatchEvent(myEvent);
-}
-
-
-function setMessage (mensaje){
-	console.log(myEvent.detail);
-	alert('hola' + myEvent.detail);
-}*/
+	// function enviar(){
+	// nam.dispatchEvent(myEvent);
+	// }
 
 
-				// var narray = [];
-				//  var arraySinRepeticiones = pushPeople.filter(function(value, index, self){ 
-    // 			return self.indexOf(value) === self.lastIndexOf(value);
- 			// 	 });
+	// function setMessage (mensaje){
+	// console.log(myEvent.detail.identificador);
+	// alert('hola' + myEvent.detail.s);
+	// }
+
+
+
 
 
 		var people2 = [
@@ -36,46 +33,80 @@ function setMessage (mensaje){
 					 	{ name: "john", id:2 }, 
 					 	{ name: "alex", id:3 }, 
 					 	{ name: "john", id:3 },
-					 	{ name: "jhon", id:3 },
+					 	{ name: "Diane", id:3 },
 					 	{ name: "john", id:3 }];
 
-		var people3 = { name: "bob",  id:1 }
-
-			let objeto = people3;
 			var string1 = "";
 			var arrayName = [];
+			var indices =[];
+			var e=[];
+			var f=[];
+			var g=[];
+			var indices2D =new Array(2);
+			var idx2=0;
+			var c=0;
+			var c2=0;
 
 			
-			for(var a = 0; a<people2.length; a++){
-			for (var property in people2[a]) //bucle for-in itera sobre las propiedades del objeto
-  	 		string1 += people2[a].name[property];
-  			}
+			 for(var a = 0; a<people2.length; a++){
+			 	delete people2[a].id;
+			 for (var property in people2[a]){ //bucle for-in itera sobre las propiedades del objeto
+			 	//console.log(people2[a][property])
+			 	arrayName.push(people2[a][property])
+  	 		}}
+
+  	 		f=arrayName;
+
+			var arraySinRepeticiones = people2.filter(sinRepeticiones);
+
+				function sinRepeticiones(persona){ 
+					
+					if(f.indexOf(persona.name) === f.lastIndexOf(persona.name)){
+						g.push(persona.name);
+						c++;
+					}else{
+						while(c<f.length){
+							if(f.indexOf(persona.name, c) === f.lastIndexOf(persona.name)){
+								g.push(persona.name);
+								c2++;
+								if(c2>1){
+									
+								}
+
+							}
+							c++;
+						}
+					}
+					
+
+    			}
 
 
 
-		//function repetidos(persona){
-			// return {
-			// 	...persona,
-			// 	id:4
-			// }	
+    			
 
+    				
+			/*	
 
-			function myfunction2(value,index, self){
+				 function buscaIndicesRepetidos(nombres){
+				 	//console.log(nombres)
+					//var element = e[2];
+					//var idx =arrayName.indexOf(element);		
+					var contador = 0; 
+					//var nombres = 'john';
+					//for(var w =0; w<arrayName.length;w++){
+			
+					var idx =arrayName.indexOf(nombres);
+					console.log(idx)
+					while(idx!=-1){
+				 	contador++;	
+				 	idx =arrayName.indexOf(nombres, idx+1);
+					}
+				 	indices.push(contador);	
+				 }
 
-				console.log(people2.indexOf(value.name))
-				// if(value.name.indexOf(value)!= -1){
-				// 	var n = people2.name.push();
-				// 	console.log(n);
-				// 	}
-				
-			}
-
-		//	var newArray = people2.filter(myfunction2);
-		//}
-
-
-		//var array = people2.map(repetidos);
-
+				 var r = e.map(buscaIndicesRepetidos);
+*/
 
 
 

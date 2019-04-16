@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		class Animal {
+			constructor(n){
+				this.nombre=n;
+			}
+
+		get nombre(){
+			return 'Sr ' + this._nombre;
+		}
+
+		set nombre(n){
+			this._nombre=n.trim();
+		}
+
+		hablar(n){
+			return 'Cuak';
+		}
+
+		quienSoy(){
+			return 'Hola, soy ' + this.nombre;
+		}
+
+
+		}
+
+		var donald = new Animal('Donald');
+		donald.nombre;
+
+	</script>
+
+</body>
+</html>

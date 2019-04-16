@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+//clase padre
+class Forma {
+	constructor(){
+		//console.log('Soy una forma geomètrica');
+	}
+
+	gritar(){
+		console.log('Tarea del padre');
+	}
+
+	gritar(value){ 
+		console.log('sobrecarga');
+	}
+}
+
+///clases hijas
+
+class Cuadrado extends Forma{
+	constructor(){
+		super();
+		//console.log('Soy un cuadrado');
+	}
+
+	gritar(){
+		super.gritar(); //sobreescritura
+		console.log('Tarea del hijo...');
+	}
+
+}
+
+
+var c1 = new Cuadrado();
+c1.gritar();
+
+
+
+
+
+	</script>
+
+</body>
+</html>

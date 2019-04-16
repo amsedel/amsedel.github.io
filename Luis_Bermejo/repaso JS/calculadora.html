@@ -85,21 +85,21 @@ td [colspan="2"]{
 		</thead>
 			<tr>
 				<td id="ac" onclick="reset();">AC</td>
-				<td id="masmenos" onclick="getValue('+/-');">+/-</td>
-				<td onclick="getValue('%');">%</td>
-				<td onclick="getValue('/');">÷</td>
+				<td id="negPos" onclick="getValue('+/-');">+/-</td>
+				<td id="porcentaje" onclick="getValue('%');">%</td>
+				<td id="divide" onclick="getValue('/');">÷</td>
 			</tr>
 			<tr>
 				<td id="siete" onclick="viewValue('7');">7</td>
 				<td id="ocho" onclick="viewValue('8');">8</td>
 				<td id="nueve" onclick="viewValue('9');">9</td>
-				<td onclick="getValue('*');">×</td>
+				<td id="multiplica" onclick="getValue('*');">×</td>
 			</tr>
 			<tr>
 				<td id="cuatro" onclick="viewValue('4');">4</td>
 				<td id="cinco" onclick="viewValue('5');">5</td>
 				<td id="seis" onclick="viewValue('6');">6</td>
-				<td onclick="getValue('-');">-</td>
+				<td id="resta" onclick="getValue('-');">-</td>
 			</tr>
 			<tr>
 				<td id="uno" onclick="viewValue('1');">1</td>
@@ -124,12 +124,37 @@ td [colspan="2"]{
 				operB : ''
 				}
 
+		/*Eventos personalizados*/
+
 		var eventClean = new Event('cleanScreen');
-		var eventOperation = new Event('operation');
+		var eventSuma = new Event('sumar');
+		var eventResta = new Event('restar');
+		var eventMultiplicacion = new Event('multiplicar');
+		var eventDivision = new Event('dividir');
+		var eventPorcentaje = new Event('porcentual');
+		var eventNegPos = new Event('negPos');
+
+		var s =document.getElementById('suma');
+		s.addEventListener('sumar', suma);
+
+		var re = document.getElementById('resta');
+		re.addEventListener('restar', resta);
+
+		var m = document.getElementById('multiplica');
+		m.addEventListener('multiplicar',multiplicacion);
+
+		var d = document.getElementById('divide');
+		d.addEventListener('dividir', division);
+
+		var p = document.getElementById('porcentaje');
+		p.addEventListener('porcentual',porcentaje);
+
+		var mm = document.getElementById('negPos');
+		mm.addEventListener('negPos', masMenos);
 
 		ac.addEventListener('cleanScreen', cleanView);
 		var inOut= document.getElementById('inputOutput');
-		var inOutGrey = document.getElementById('inputOutputGray');
+
 
 		//para que no exista un reseteo del número al introducir otro número
 		//introduje un contador cifra, que se resetea cada que el usuario
@@ -186,11 +211,10 @@ td [colspan="2"]{
 
 				var valueB = document.getElementById('inputOutput');
 				valores.operB=valueB.textContent;
-				//operacion();
-				valueB.addEventListener('operation',operation);
-				valueB.dispatchEvent(eventOperation);
+				console.log(valores.operB);
+				operacion();
 			}else{
-				valores.operA = valueA.textContent;				
+				valores.operA = valueA.textContent;	
 			}
 
 			//console.log(valores);
@@ -205,39 +229,34 @@ td [colspan="2"]{
 			countResta = 0; countDiv=0; countMasMenos=0;
 			var valueB = document.getElementById('inputOutput');
 			valores.operB = valueB.textContent;
-			//operacion();
-			valueB.addEventListener('operation',operation);
-			valueB.dispatchEvent(eventOperation);
-
+			//console.log(valores.operB)
+			operacion();
 		}
 
 		//se hace un cambio de tipo de variable, ya que los valores ingresados vienen en formato string
 		//luego se compara la operación que el usuario desea y se mandan llamar las funciones, encargadas de
 		//tales operaciones
-		function operation(){
-			var a = parseFloat(valores.operA);
-			var b = parseFloat(valores.operB);
+		function operacion(){
+			// var a = parseFloat(valores.operA);
+			// var b = parseFloat(valores.operB);
 			if(valores.operacion == '+'){
-				var eventSuma = new CustomEvent('sumar', {detail:{Pa:a, Pb:b}});
-				valores.operacion.addEventListener('sumar', suma())
-				this.dispatchEvent(eventSuma);
-				//valores.operacion
-				//console.log(this)
-				suma(a,b);
+				s.dispatchEvent(eventSuma);
 			}else if(valores.operacion == '-'){
-				resta(a,b);
+				re.dispatchEvent(eventResta);
 			}else if(valores.operacion == '*'){
-				multiplicacion(a,b);
+				m.dispatchEvent(eventMultiplicacion);
 			}else if(valores.operacion == '/'){
-				division(a,b);
+				d.dispatchEvent(eventDivision);
 			}else if(valores.operacion == '%'){
-				porcentaje(a,b);
+				p.dispatchEvent(eventPorcentaje);
 			}else if(valores.operacion == '+/-'){
-				masMenos(a,b);
+				mm.dispatchEvent(eventNegPos);
 			}
 		}
 
-		function suma(a,b){
+		function suma(){
+			var a = parseFloat(valores.operA);
+			var b = parseFloat(valores.operB);
 			var r = a+b;
 			valores.operA = r;
 			var result = document.getElementById('inputOutput');
@@ -246,7 +265,9 @@ td [colspan="2"]{
 			return r;
 		}
 
-		function resta(a,b){
+		function resta(){
+			var a = parseFloat(valores.operA);
+			var b = parseFloat(valores.operB);
 			var r = a-b;
 			valores.operA = r;
 			var result = document.getElementById('inputOutput');
@@ -255,7 +276,9 @@ td [colspan="2"]{
 			return r;
 		}
 
-		function multiplicacion(a,b){
+		function multiplicacion(){
+			var a = parseFloat(valores.operA);
+			var b = parseFloat(valores.operB);
 			var r = a*b;
 			valores.operA = r;
 			var result = document.getElementById('inputOutput');
@@ -264,7 +287,9 @@ td [colspan="2"]{
 			return r;
 		}
 
-		function division(a,b){
+		function division(){
+			var a = parseFloat(valores.operA);
+			var b = parseFloat(valores.operB);
 			var r = a/b;
 			r = r.toFixed(3);
 			valores.operA = r;
@@ -274,7 +299,8 @@ td [colspan="2"]{
 			return r;
 		}
 
-		function porcentaje(a,b){
+		function porcentaje(){
+			var a = parseFloat(valores.operA);
 			var r = a/100;
 			r = r.toFixed(3);
 			valores.operA = r;
@@ -285,7 +311,8 @@ td [colspan="2"]{
 
 		}
 
-		function masMenos(a,b){
+		function masMenos(){
+			var a = parseFloat(valores.operA);
 			var r = a*(-1);
 			valores.operA = r;
 			console.log(r);

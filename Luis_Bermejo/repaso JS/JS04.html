@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS04</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+var anObject = {
+	foo:'bar',
+	length : 'interesting',
+	'0': 'zero!', 
+	'1':'one!'
+};
+
+var anArray = ['zero.','one.'];
+
+//console.log(anArray[0], anObject[0]);																						/**/
+
+//imprime:  zero. zero!
+/*Esto es debido a que en el array 'anArray', le indicamos que acceda al primer elemento con el indice = 0, 
+mientras que en el objeto estamos accediendo a uno de sus elementos por su nombre '0'. Recordar que hay dos 
+forma de acceder a los elementos de un objeto, mediante el '.' y mediante corchetes*/
+
+
+ 
+ //console.log(anArray[1], anObject[1]);																					/**/
+
+//imprime: one. one!
+ /*Accedemos al anArray en la posición : 'one.' y accedemos al parámetro del objeto mediante los corchetes 
+ por su nombre*/
+
+
+
+ //console.log(anArray.length, anObject.length);																			/**/
+
+//imprime: 2 "interesting"
+/*En el array estamos pidiendo la dimención de este, mientras que en anObject, estamos accediendo al valor de 
+la propiedad de este objeto mediante la nomenclatura punto*/
+
+//imprime: undefined "bar"
+ console.log(anArray.foo, anObject.foo);
+ /*En el objeto estamos accediendo al valor*/
+
+// console.log(typeof anArray=='object', typeof anObject =='object');
+// console.log(anArray instanceof Object, anObject instanceof Object);
+// console.log(anArray instanceof Array, anObject instanceof Array);
+// console.log(Array.isArray(anArray), Array.isArray(anObject));
+
+
+
+</script>
+
+</body>
+</html>

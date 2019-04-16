@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Polimorfismo</title>
+</head>
+<body>
+<script type="text/javascript">
+	
+class Forma{
+	dibujar(){
+		console.log('borrando forma...');
+	}
+
+	borrar(){
+		console.log('borrando forma');
+	}
+}
+
+class Circulo extends Forma{
+
+ 	dibujar(){
+		console.log('calculando diámetro..');
+		console.log('Dibujando círculo..');
+		this.hacerOtraCosa(); //scope a nivel de metodo, agregarle this
+	}
+
+	borrar(){
+		console.log('borrando circulo');
+	}
+
+	hacerOtraCosa(){
+		console.log('haciendo otras cositas')
+	}
+}
+
+class Cuadrado extends Forma{
+
+ 	dibujar(){
+ 		super.dibujar();
+		console.log('Dibujando lado A..');
+		console.log('Dibujando lado B..');
+		console.log('Dibujando lado C..');
+		console.log('Dibujando lado D..');
+	}
+
+	borrar(){
+		console.log('borrando cuadrado');
+	}
+
+}
+
+class Pantalla{
+	mostrarFormas(forma){
+		forma.dibujar();
+	}
+
+	limpiarPantalla(forma){
+		forma.borrar();
+	}
+}
+
+let circulo1 = new Circulo();
+let circulo2 = new Circulo();
+let cuadrado1 = new Cuadrado();
+let myPantalla = new Pantalla();
+
+myPantalla.mostrarFormas(circulo1);
+myPantalla.limpiarPantalla(circulo1);
+
+myPantalla.mostrarFormas(circulo2);
+myPantalla.limpiarPantalla(circulo2);
+
+myPantalla.mostrarFormas(cuadrado1);
+myPantalla.limpiarPantalla(cuadrado1);
+
+</script>
+
+
+</body>
+</html>
