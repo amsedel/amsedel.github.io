@@ -12,13 +12,14 @@
 				this.nombre=n;
 			}
 
+		set nombre(n){
+			this._nombre=n.trim();
+		}
+
 		get nombre(){
 			return 'Sr ' + this._nombre;
 		}
 
-		set nombre(n){
-			this._nombre=n.trim();
-		}
 
 		hablar(n){
 			return 'Cuak';
@@ -32,7 +33,8 @@
 		}
 
 		var donald = new Animal('Donald');
-		donald.nombre;
+		console.log(donald.nombre);
+		//console.log(donald.nombre = 'Lucas');
 
 	</script>
 

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="author" description="Diana Anahí Ledesma Roque">
+	<meta charset="utf-8">
+	<title>Reloj</title>
+	<style type="text/css">
+
+		*{
+			margin: 0;
+			padding: 0;
+			font-size: 1.5em;
+		}
+		body{
+			/*background: url(mountain.jpg) #CCC;*/
+			background: #CCC;
+			background-size: cover;
+			/*color: #fff;*/
+		}
+
+		p{
+			display: inline-block;
+		}
+		.amOpm{
+			font-size: .7em;
+			display: inline-block;
+		}
+
+	</style>
+</head>
+<body>
+
+	<section class="container">
+		<div class="reloj">
+			<p id="horas"></p>
+			<p>:</p>
+			<p id="minutos"></p>
+			<p>:</p>
+			<p id="segundos"></p>
+			<div class="amOpm">
+			<p id="ampm"></p>
+			</div>
+		</div>
+	</section>
+
+<script type="text/javascript">
+
+ // var myEvent = new Event('actualizar');
+ // var reloj = document.getElementById('reloj');
+ // reloj.addEventListener('actualizar',actualizarTime);
+//para obtener fecha: getFullYear();getMonth(),getDate() (dia), fecha.getDay(),
+
+	
+function actualizarTime(){
+
+var time = new Date();
+var myhour = time.getHours();
+var myminutes = time.getMinutes();
+var myseconds = time.getSeconds();
+
+console.log(myhour,myminutes,myseconds);
+
+		if(myhour>=12){
+			myhour= myhour-12;
+			ampm = 'PM';
+		}else{
+			ampm='AM';
+		}
+
+		if(myhour==0){
+			myhour=12;
+		}
+
+		if(myhour<10){
+			myhour='0'+ myhour;
+		}
+		if(myminutes<10){
+			myminutes='0' + myminutes;
+		}
+		if (myseconds<10) {
+			myseconds='0' + myseconds;
+		}
+
+var hour = document.getElementById('horas');
+hour.textContent = myhour;
+var minutes = document.getElementById('minutos');
+minutes.textContent = myminutes;
+var seconds = document.getElementById('segundos');
+seconds.textContent = myseconds;
+var am_pm = document.getElementById('ampm');
+am_pm.textContent = ampm;
+console.log(hour);
+}
+
+//actualizarTiempo(this.dispatchEvent(myEvent));
+//var intervalo = setInterval(actualizar,1000);
+actualizarTime();
+window.setInterval(actualizarTime,1000);
+
+// var myEvent = new Event('actualizar');
+// .addEventListener('actualizar', actualizarTime);
+// .dispatchEvent(myEvent);
+
+
+</script>
+
+</body>
+</html>

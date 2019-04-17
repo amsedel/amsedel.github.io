@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="author" description="Diana Anahí Ledesma Roque">
+	<meta charset="utf-8">
+	<title>Ejercicio 9</title>
+	<style type="text/css">
+		*{
+			margin: 0 auto;
+			font-size: 1.1em;
+			font-family: Arial, serif;
+		}
+		div{
+			padding: 20px;
+			background: #c2c2c2;
+			border: 1px solid black;
+		}
+		a{
+			text-decoration: underline;
+		}
+		a:hover{
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="post-102">
+		
+		<p>I like confirm modals.</p>
+		<a data-deletepost="post-102" onclick="eliminar('post-102');">Delete post</a>
+	
+	</div>
+	<div id="post-103">
+	
+		<p>That's way too cool!</p>
+		<a data-deletepost="post-102" onclick="eliminar('post-103');">Delete post</a>
+	
+	</div>
+
+	<script type="text/javascript">
+		
+		function eliminar(n){
+			var deleteBtn = document.getElementById(n)
+			//console.log(deleteBtn);
+			 var opcion = confirm("¿Seguro que desea eliminar el elemento?");
+
+			 if(opcion){
+			 	deleteBtn.remove()
+			 }
+		}
+
+	</script>
+
+
+</body>
+</html>

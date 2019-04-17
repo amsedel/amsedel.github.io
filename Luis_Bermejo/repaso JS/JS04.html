@@ -6,7 +6,11 @@
 <body>
 
 <script type="text/javascript">
+
+/*EJERCICIOS JS04 DEL 1-8*/
 	
+/*1.- Dado el siguiente objeto y arreglo cual es el resultado del siguiente código y porque*/
+
 var anObject = {
 	foo:'bar',
 	length : 'interesting',
@@ -39,15 +43,240 @@ forma de acceder a los elementos de un objeto, mediante el '.' y mediante corche
 /*En el array estamos pidiendo la dimención de este, mientras que en anObject, estamos accediendo al valor de 
 la propiedad de este objeto mediante la nomenclatura punto*/
 
-//imprime: undefined "bar"
- console.log(anArray.foo, anObject.foo);
- /*En el objeto estamos accediendo al valor*/
 
-// console.log(typeof anArray=='object', typeof anObject =='object');
-// console.log(anArray instanceof Object, anObject instanceof Object);
-// console.log(anArray instanceof Array, anObject instanceof Array);
-// console.log(Array.isArray(anArray), Array.isArray(anObject));
 
+ //console.log(anArray.foo, anObject.foo);																					/**/
+
+ //imprime: undefined "bar"
+ /*En el objeto estamos accediendo al valor de foo que es 'bar', mediante la nomenclatura punto, mientras que
+ en anArray tenemos undefined, ya que foo no existe como valor, propiedad o método de un array */
+
+
+
+ //console.log(typeof anArray=='object', typeof anObject =='object');														/**/
+
+//imprime: true true
+/*Primero se realiza el tipo de dato de anArray y anObject, posteriormente re realiza la evaluación de comparación
+typeof devuelve siemmpre una cadena. Es claro que anObject es un objeto, por lo que el resulltado de la comparación
+es verdadera, sin embargo un array también se considera un objeto pero con comportamientos y habilidades diferentes*/
+
+
+
+ //console.log(anArray instanceof Object, anObject instanceof Object);														/**/
+
+ //imprime: true true
+/*El operador instanceof verifica si un objeto en su cadena de prototipos contiene la propiedad prototype de un constructor
+y en este caso anArray y anObject son del tipo Object*/
+/*puede especificar una cadena creada con el constructor String, pero no puede especificar un literal de cadena.*/
+/*Array hereda el prototipo objeto. El array es una referencia a una función constructora, no a un array real. 
+Las funciones del constructor son funciones, y todas las funciones son objetos.*/
+
+
+
+ //console.log(anArray instanceof Array, anObject instanceof Array);														/**/
+
+ //imprime: true false
+/*anArray es un array y es un objeto. anObject intanceof Array, es falso ya que todos los objetos de javascript heredan
+del objeto.prototype y no al revés*/
+
+
+
+//console.log(Array.isArray(anArray), Array.isArray(anObject));																/**/
+
+//imprime: true false
+/*isArray analiza si el valor pasado es un array, en el primer caso, como se pasa el array;: ' ['zero.','one.']', se retorna
+true y en el segundo caso se pasa un objeto y no es un array por lo que se retorna false*/
+
+
+/*******************************************************************************************************************************/
+
+
+/*2.- Dado el siguiente objeto, qué metodo del objeto 'Object' se puede usar para observar el siguiente resultado*/
+/*con el método Object.values(obj)*/
+
+ var obj = {																												
+ 	a:'hello',
+ 	b:'this is',
+ 	c: 'javascript'}
+
+ 	var array = Object.values(obj);
+// 	console.log(array) 
+	//lo que imprime: ["hello", "this is", "javascript"]
+
+/*******************************************************************************************************************************/
+
+
+/*3.-Crear una función para imprimir en consola la siguiente serie de numeros:*/
+/*0,2,4 ... 98*/
+
+							new Array(50).fill(0).map(myfunc);
+								function myfunc(arr, i){
+										var i= i*2;
+									//	console.log(i);
+									}
+
+	//Con array function:
+//console.log(new Array(50).fill(0).map((arrCeros,i) => i * 2 ));															/**/
+
+
+/*******************************************************************************************************************************/
+
+
+/*4.- Dado el siguiente código, */
+
+	let zero = 0;
+	function multiply(x) {return x * 2}
+	function add(a = 1 + zero, b = a, c = b + a, d = multiply(c)){
+		console.log((a+b+c), d);
+	}
+
+/*Cuál es el resultado al ejecutar las siguientes sentencias*/
+	//add(1); 			//imprime: 4 4 ,  esto es debido a que 'a' recibe el valor de 1, b=1, c= 2, porteriormente d manda llamar 
+						//la función multiply (multiplica por dos), pasando el el valor de 2
+	// add(3); 			//imprime: 12 12 ,  ahora a=3, b=3, y c=6 y  d=c*2 = 12
+	// add(2,7);		 //imprime: 18 18 ,  ahora a=2, b=7 c=2+7=9, d=c*2 = 18
+	// add(1,2,5);		 //imprime: 8 10, ahora a=1, b=2, c=5, por lo que a+b+c=8, y d=c*2 por lo que d=10
+	// add(1,2,5,10);	 //imprime: 8 10, ahora a=1, b=2, c=5, por lo que a+b+c=8, y en d se ignora la multiplicación y 
+	 				  	//asigna directamente d=10;
+
+/*******************************************************************************************************************************/
+
+
+/*5.-Dado el siguiente código*/
+
+
+class MyClass{
+	constructor(){
+		this.names_ = [];
+	}
+
+	set name(value){
+		this.names_.push(value);
+	}
+
+	get name(){
+		return this.names_[this.names_.length -1];
+	}
+}
+
+const myClassInstance = new MyClass();
+myClassInstance.name = 'Joe';
+myClassInstance.name = 'Bob';
+
+/*Cuál es el resultado de ejecutar las siguientes sentencias y porque?*/
+
+//console.log(myClassInstance.name); 	 //imprime: Bob
+//console.log(myClassInstance.names_); //imprime: ["Joe", "Bob"]
+
+
+//En console.log(myClassInstance.name), estamos accediendo al return del método get, el cuál regresa la variable:
+//this.names_[1]. El tamaño del array es de 2 (Joe y bob), sin embargo se le esta restando -1, por lo que está ndicando
+// que del this.names_ se imprima el valor en el indice 1, en este caso 'Bob'.
+//para el caso de console.log(myClassInstance.names_), estamos accediendo al valor de la variable array this.names_
+//que para este caso es ["Joe", "Bob"], su dimención es de dos, ya que solo se instanciaron dos objetos y mediante el 
+//metodo set, se introdujeron en un array mediante push.Esta forma es una mala práctica de acceder a la variable.
+
+
+
+/*******************************************************************************************************************************/
+
+
+/*6.-Dado el siguiente código */
+
+const classInstance = new class{
+	get prop (){
+		return 5;
+	}
+};
+
+/*Cuál es el resultado de ejecutar las siguietes sentencias y porque:*/
+
+classInstance.prop = 10;
+//console.log(classInstance.prop);
+
+//Imprime: 5,
+//Esto es debido a que se está llamando al metodo get, que retorna el valor de 5, aunque se le estableca el valor de 10
+//el valor de 5 se encuentra encapsulado por los metodos getters y setters y no es posible acceder a él para modificarlo.
+
+/*******************************************************************************************************************************/
+
+/*7.-Dado el siguiente código*/
+
+	class Queue{
+		constructor(){
+			const list = [];
+			this.enqueue = function(type){
+				list.push(type);
+				return type;
+			};
+			this.dequeue = function(){
+				return list.shift();
+			}
+		}
+	}
+/*Cuál es el resultado de ejecutar las siguientes sentencias y porque?*/
+
+	var q = new Queue();
+	q.enqueue(9);
+	q.enqueue(8);
+	q.enqueue(7);
+
+	//console.log(q.dequeue()); //Imprime : 9, ya que se esta ejecutando el metodo shift en el array y este métdo elimina el
+	//primer elemento de un array y lo trae de vuelta.
+
+	//console.log(q.dequeue()); //Imprime : 8, ya que se esta ejecutando el metodo shift en el array y este método elimina el
+	//primer elemento de un array y lo trae de vuelta.Como arriba ya se elimino el 9, ahora trae el siguiente: 8.
+
+	// console.log(q.dequeue()); //Imprime : 7 ,trae el último elemento que queda en el array el cuál es el 7.
+
+	//console.log(q); //Imprime : Queue {enqueue: ƒ, dequeue: ƒ}, devuelve ala clase como objeto cuyas propiedades son
+	// enqueue y dequeue. Esto es porque en realidad q es un objeto de la clase Queue el cuál posee dos propiedades 
+	//enqueue y dequeue, y los valores de estos son las funciones anonimas que hacen la funcionalidad de eliminar o agregar 
+	//elementos
+
+	//console.log(Object.values(q)); //Imprime: ["enqueue", "dequeue"] , Esto es porque el método Object.keys, devuelve un array de las propiedades names de un objeto
+
+/*******************************************************************************************************************************/
+
+/*8.- Dada la siguiente clase Person, define los métodos correspondientes para ejecutar el siguiente código*/
+
+	
+	class Person {
+		constructor(f, l){
+			this._f = f;
+			this._l= l;
+		}
+
+		set firstname(f){
+			this._f= f; 
+		}
+
+		get firstname(){
+			return 'Hola ' + this._f;
+		}
+
+		set lastname(l){
+			this._l= l;
+		}
+
+		get lastname(){
+			return this._l;
+		}
+
+	}
+
+	let  person = new Person('John', 'Doe');
+
+	//console.log(person.firstname, person.lastname);
+	 person.firstname = 'Foo';
+	 person.lastname = 'Bar';
+
+	//console.log(person.firstname, person.lastname)
+
+
+/*******************************************************************************************************************************/
+
+/*9.- Dado el siguiente código HTML, define los métodos correspondientes para ejecutar el siguiente código*/
 
 
 </script>
