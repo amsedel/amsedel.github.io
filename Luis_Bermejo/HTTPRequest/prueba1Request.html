@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prueba request</title>
+</head>
+<body>
+
+	<input type="button" name="" id="btn" value="Presioname" onclick="presionar();">
+	<div id="myDiv"></div>
+	<script type="text/javascript">
+
+		var btn = document.getElementById('btn');
+		var myDiv = document.getElementById('myDiv');
+		
+		const URL = 'https://httpbin.org/get';
+		var objReq = new XMLHttpRequest();
+
+		
+		objReq.onreadystatechange = function (){
+		if(objReq.readyState===4){
+			myDiv.style.border = '1px solid gray';
+			if(objReq.status === 200){
+				myDiv.innerHTML = objReq.responseText;
+				console.log(objReq);
+			}else{
+				alert('Ocurrió un error al cargar la página');
+			}
+		}
+
+	}
+
+	objReq.open('GET', URL);
+
+	function presionar(){
+		objReq.send();
+	}
+
+	</script>
+
+</body>
+</html>
