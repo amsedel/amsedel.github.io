@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prueba request</title>
+</head>
+<body>
+
+	<section>
+		<h3>Alumnos</h3>
+		<article id="alumnosList"></article>
+	</section>
+
+	<script type="text/javascript">
+
+		
+		var request = new XMLHttpRequest();
+
+		
+		request.addEventListener('load', () => {
+			if(request.status === 200){
+				//Formato texto
+				console.log(request.responseText);
+				//formatojson
+				console.log(JSON.parse(request.responseText));
+			}else{
+				console.log(request.status, request.statusText);
+			}
+
+	});
+
+
+	request.addEventListener('error', () =>{
+		console.log('error de red')
+	})
+
+	request.open('GET', 'http://localhost:8080/api/alumnos', true);
+	request.send(null);
+
+	</script>
+
+</body>
+</html>

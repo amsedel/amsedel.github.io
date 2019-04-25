@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Metodo de burbúja</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+	//MÉTODO DE LA BURBUJA
+
+var d=[5, 2, 3, 7, 11, 2, 9, 6, 13];
+var s=0;
+var w=0;
+var temp;
+
+while(w<d.length-1){
+for(s=0; s<d.length-1-w; s++){
+	if(d[s]>d[s+1]){
+		temp=d[s];
+		d[s]=d[s+1];
+		d[s+1]=temp;
+	}
+}
+w++;
+}
+document.write("<br>" + d);
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Algoritmo Match</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+//MATCH: ORDENAR DOS ARRAYS 
+
+var a=[1,2,5,7,10];
+var b=[1,5,6,7,8,9];
+var c = [];
+i=0;
+j=0;
+k=0;
+
+while(i<a.length && j<b.length){
+	if(a[i]==b[j]){
+	//document.write(" " + a[i] + " " + b[j] + " ");
+	c[k]=a[i];
+	k++;
+	c[k]=b[j];
+	k++; i++; j++;
+
+	}else if (a[i]>b[j]){
+	//document.write(" " + b[j]);
+	c[k]=b[j];
+	k++; j++;	
+	}else{
+	//document.write(" " + a[i]);
+	c[k]=a[i];
+	k++; i++;		
+	}//fin if
+
+}
+
+while(i<a.length){
+	//document.write(" " + a[i]);
+	c[k]=a[i];
+	k++;
+	i++;
+}
+
+while(j<b.length){
+	//document.write(" " + b[j]);
+	c[k]=b[j];
+	k++;
+	j++;
+}
+
+document.write(c);
+
+	</script>
+
+</body>
+</html>

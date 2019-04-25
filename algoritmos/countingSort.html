@@ -1,18 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>Counting Sort</title>
+	<style type="text/css">
+		body{
+			font-family: Arial,serif;
+			font-size: 18px;
+		}
+		.container{
+			width: 800px;
+		}
+		h1{
+			padding: 10px;
+			margin: 20px;
+		}
+		fieldset{
+			margin: 10px 15px;
+			background-color: hsla(186, 65%, 62%, 0.34);
+			padding: 15px;
+		}
+		input{
+			display: inline-block;
+			padding: 5px;
+			margin-bottom: 5px;
+			margin:0 15px;
+			height: 12px;
+		}
+		.submit,.btn{
+			margin-top: 10px;
+			font-weight: bold;
+			background-color: hsla(228, 74%, 57%, 1);
+			width: 80px;
+			color: white;
+			height: 30px;
+			font-size: 14px;
+			border-radius: 5px 5px 5px 5px;
+			padding: 5px 5px;
+		}
+		.submit:hover,.btn:hover{
+			background-color: hsla(228, 74%, 57%, .8);
+			border: 1px solid blue;
+		}
+		div{
+			margin: 15px;	 
+		}
+	</style>
 </head>
 <body>
-
+	<h1>Algoritmo Counting Sort</h1>
+	<div id="contenido" class="container">
+		<fieldset>
+			<form id="form">
+				<label for="num">Introduce la cantidad de numeros aleatorios que quieres ordenar: </label>
+				<input type="Number" name="num" id="num" min="1" required="">
+				<br>
+				<input type="submit" name="btnGenerar" value="Generar" id="btnGenerar" class="submit">
+				<input type="button" name="btn" id="btnOrdenar" value="Ordenar" class="btn">
+			</form>
+		</fieldset>
+		<fieldset id="fieldsetGenerar">	
+			<p id="parrafoGenerar"></p>	
+			<div id="divGenerar"></div>
+		</fieldset>
+		<fieldset id="fieldsetOrdenado">	
+			<p id="parrafoOrdenado"></p>	
+			<div id="divOrdenado"></div>	
+		</fieldset>
+	</div>
 
 <script type="text/javascript">
 	
-	var arr = [6, 8, 13, 59, 39, 2, 1];
+	var generar;
+	var form = document.getElementById('form');
+	var contenido = document.getElementById('contenido');
+	var arrayGenerado = document.getElementById('arrayGenerado');
+	var btnOrdenar = document.getElementById('btnOrdenar');
+	
+	form.addEventListener('submit', generarArray);
+	btnOrdenar.addEventListener('click', ordenarArray);
 
-	var arr2= [];
+	var p1f2 = document.getElementById("parrafoOrdenado");
+	var div1f2 = document.getElementById('divOrdenado');
 
-	console.log(arr2.fill(arr));
+	var fieldsetG = document.getElementById('fieldsetGenerar');
+	fieldsetG.style.display='none';
+	var fieldsetO = document.getElementById('fieldsetOrdenado');
+	fieldsetO.style.display='none';
+
+
+	function generarArray(e){
+		e.preventDefault();
+		fieldsetG.style.display='block';
+		fieldsetO.style.display='none';
+		var p1f1 = document.getElementById('parrafoGenerar');
+		p1f1.textContent = "Tu array generado es: "
+
+		var num = document.getElementById('num');
+		num = parseInt(num.value);
+		generar = new Array(num).fill(0).map((arrCeros, i) => (i+1)*Math.floor(Math.random()*6));
+
+		var div1f1 = document.getElementById('divGenerar');
+		div1f1.textContent = `[${generar}]`;
+
+		p1f2.textContent = "";
+		div1f2.textContent="";
+
+	}
+
+	function ordenarArray(){
+		if(generar!=undefined){
+		/*************************************************ALGORITMO COUNTIG SORT*************************************************/
+		var a = generar;
+		//var a = [7, 2, 9, 20, 11, 2];
+		var k =Math.max(...a);
+		var c= new Array(k+1).fill(0); //equivalente al primer for
+		var b= new Array();
+
+		console.log(a);
+		console.log(c);
+
+				for(let j = 0; j<a.length; j++)
+					c[a[j]] = c[a[j]]+1; //contador de repeticiones
+
+				console.log(c);
+
+				for(let i = 1; i<=k; i++)
+					c[i] = c[i]+c[i-1]; //suma el valor de un numero 'actual' más el numero anterior a el y el resultado lo coloca en el actual
+
+				console.log(c);
+
+				for(let j = 0; j<a.length; j++){
+					b[c[a[j]]]=a[j];//coloca el valor de a en orden
+					c[a[j]]=c[a[j]]-1;//resta las repeticiones
+				}
+				b.shift();
+				console.log(b);
+
+		/**************************************************************************************************************************/
+
+				fieldsetO.style.display='block';
+				p1f2.textContent ="Tu array ordenado es: ";
+				div1f2.textContent = `[${b}]`;
+
+
+			}else{
+				alert('Primero debes generar un array!');
+			}
+		}
 
 
 </script>
