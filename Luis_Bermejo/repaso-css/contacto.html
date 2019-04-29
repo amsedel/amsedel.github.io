@@ -1,33 +1,68 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
 	<meta charset="utf-8">
 	<title>Contacto</title>
 	<link rel="stylesheet" type="text/css" href="contacto.css">
 </head>
 <body>
-<div class="solo"></div>
-<section class="container">
-<div class="contacto">
-	<h1>Información<br><span>de contacto</span></h1>
-	<p class="puno">info.contact@gmail.com</p>
-	<p class="pdos">+1(585) 902-8665</p>
-</div>
-<div class="mensaje">
-	<h2>Envía un mensaje</h2>
-	<form>
-		<label for="name">Nombres*</label>
-		<input type="text" name="name" required>
-		<label for="cell">Telefono / Celular</label>
-		<input type="tel" name="cell">
-		<label for="mail">Correo Electrónico *</label>
-		<input type="email" name="mail" required>
-		<label for="msn">Mensaje *</label>
-		<textarea name="msn"></textarea>
-		<input type="submit" name="submit" value="Enviar Mensaje">
-	</form>
-</div>
-</section>
+	<div class="solo"></div>
+	<section class="container">
+		<div class="contacto">
+			<h1>Información<br><span>de contacto</span></h1>
+			<p class="puno">info.contact@gmail.com</p>
+			<p class="pdos">+1(585) 902-8665</p>
+		</div>
+		<div class="mensaje">
+			<h2>Envía un mensaje</h2>
+			<form id="formulario" name="formulario">
+				<label for="name">Nombre*</label>
+				<input type="text" name="nombre" id="nombre" required="">
+				<label for="cell">Telefono / Celular*</label>
+				<input type="tel" name="tel" id="tel" required="">
+				<label for="mail">Correo Electrónico *</label>
+				<input type="email" name="mail" id="mail" required>
+				<label for="msn">Mensaje *</label>
+				<textarea name="msn" id="msn" required=""></textarea>
+				<input type="submit" name="submit" value="Enviar Mensaje" class="submit">
+			</form>
+		</div>
+	</section>
+
+
+<script type="text/javascript">
+	
+	var formulario = document.getElementById('formulario');
+	formulario.addEventListener('submit', enviarDatos);
+	var jsonDatos= {};
+
+	function enviarDatos(e){
+		e.preventDefault();
+		var nom = document.getElementById('nombre').value;
+		var tel = document.getElementById('tel').value;
+		var email = document.getElementById('mail').value;
+		var msn = document.getElementById('msn').value;
+		console.log(nom,tel,email,msn);
+
+		 var request = new XMLHttpRequest();   // instancia del tipo xmlhttprequest
+		 var url = 'http://localhost:8080/api/contactos';
+		 request.open("POST", url, true);
+		 request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		 request.send(JSON.stringify({ "nombre": nom, "telefono": tel, "correo": email, "mensaje" : msn})); 
+		 //envía los datos en el cuerpo del mensaje
+
+		formulario.nombre.value="";
+		formulario.tel.value="";
+		formulario.mail.value="";
+		formulario.msn.value="";
+		formulario.submit.disabled=true;
+
+		alert('Tu mensaje fue enviado Exitosamente');
+	}
+
+	
+
+</script>
 
 </body>
 </html>

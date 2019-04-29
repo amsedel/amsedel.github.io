@@ -2,18 +2,29 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Max Heapify</title>
+	<title>Max Heapify prueba</title>
 </head>
 <body>
 
 <script type="text/javascript">
 	
-	var arr = [4, 2, 6, 7];
+	//var arr = [4, 2, 6, 7];
+	var arr = [4, 7, 6, 2];
+	//var arr = [4, 7, 2, 6];
+	// var arr = [2,4,6];
+	//c var arr = [2,6,4];
+	//c var arr = [4,2,6];
+	//c var arr = [4,6,2];
+	//c var arr = [6,4,2];
+	//c var arr = [6,2,4];
+
+
 	var arrayLength=arr.length;
 	arr.unshift(0);
 	var arrOutput = new Array(arr.length).fill(0);
-	var largestValue, value_smallest1;
+	var largestValue, value_smallest1, last;
 	//var i = 1;
+	var largest, value_smallest;
 
 
 	function maxHeapify(arr,  i){
@@ -22,8 +33,7 @@
 	 //hijo derecho = 2*i+1
 	 var l = 2*i;
 	 var r = 2*i + 1;
-	 var largest, value_smallest;
-	 console.log(arr);
+	 //console.log(arr);
 	 /*console.log(i);
 	 console.log('l:' + l);
 	 console.log('r:' + r);*/
@@ -48,7 +58,7 @@
 
 	 		arr[largest]=value_smallest1;	
 	 	}
-
+	 console.log(arr[largest]);
 	 return arr;
 	}
 
@@ -56,29 +66,24 @@
 
 	function builtMaxHeap(){
 		for(var i = arrayLength/2; i>=1; i--){
-			console.log(maxHeapify(arr,i));
+			console.log('built' + maxHeapify(arr,i));
 		}
 	}
 
-	//function heapSort(){
-		builtMaxHeap();
-		 var arrayLength=arr.length;
-		 for(var j = 2; j >=1; j--){
-		 	console.log('otro ciclo')
-		 	console.log('lenght de j: ' + j);
-		 	largestValue = arr[1];
-		 	console.log('largest value: ' + largestValue);
-		 	arr[1]=arr[j+2];
-		 	console.log('arr[1]: ' + arr[1]);
-		 	arrOutput[j+2]=largestValue;
-		 	console.log(arr);
-		 	console.log(arrOutput);
-		 	maxHeapify(arr,j);
-		 	arr.pop(); 
-		 	
-		 }
+	builtMaxHeap();
+	var arrayLength=arr.length;
+	for(var j = arrayLength-1; j >=1; j--){
+		// largestValue = arr[1]
+		// console.log(largestValue)
+		// arr[1]=arr[j];
+		// arrOutput[j]=largestValue;
+		// arr.pop(); 
+		// console.log(j)
+		console.log(maxHeapify(arr,j));
+	}
 
-	//}
+
+
 
 
 </script>
