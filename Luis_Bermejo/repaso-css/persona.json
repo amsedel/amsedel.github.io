@@ -1,0 +1,14 @@
+		{
+			"nombre": "Hugo Sánchez",
+			"edad": 41,
+			"email":"hugo_sanchez@gmail.com",
+			"sexo":"h",
+			"telefono":"55252435",
+			"color":"#ffffff",
+			"fechaNacimiento": "1976-10-08",
+			"trabajo":{
+				"puesto":"Desarrollador",
+				"email":"hugo_sanchez@consultora.team",
+				"telefono":"4455998678"
+			}
+		}

@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Contacto</title>
 	<link rel="stylesheet" type="text/css" href="contacto.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<div class="solo"></div>
@@ -16,14 +17,14 @@
 		<div class="mensaje">
 			<h2>Envía un mensaje</h2>
 			<form id="formulario" name="formulario">
-				<label for="name">Nombre*</label>
-				<input type="text" name="nombre" id="nombre" required="">
-				<label for="cell">Telefono / Celular*</label>
+				<label for="name">Nombre *</label>
+				<input type="text" name="nombre" id="nombre" required="" >
+				<label for="cell">Telefono / Celular *</label>
 				<input type="tel" name="tel" id="tel" required="">
 				<label for="mail">Correo Electrónico *</label>
-				<input type="email" name="mail" id="mail" required>
-				<label for="msn">Mensaje *</label>
-				<textarea name="msn" id="msn" required=""></textarea>
+				<input type="email" name="mail" id="mail" class="mail" required>
+				<label for="msn">Mensaje </label>
+				<textarea name="msn" id="msn"  maxlength="150" spellcheck="true" class="msn" rows="3" placeholder="Escribe aquí tu mensaje"></textarea>
 				<input type="submit" name="submit" value="Enviar Mensaje" class="submit">
 			</form>
 		</div>

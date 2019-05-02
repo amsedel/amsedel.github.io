@@ -96,16 +96,17 @@ input, textarea{
 	border-right:none;
 	border-top: none;
 	border-bottom:2px solid #c2c2c2;
-	padding-top: 4%;
+	padding:1%;
 	width: 95%;
 	margin-bottom: 6%;
 	-webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
     -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
 	box-sizing: border-box;
+	font-size: 11pt;
 }
 
 input:focus, textarea:focus{
-	border: 2px solid #6393eb;;
+	border: 1px solid #6393eb;;
 }
 
 input[type="submit"]{
@@ -119,16 +120,25 @@ input[type="submit"]{
 	top:20%;
 	position: relative;
 	left: 65%;
+	font-size: 11pt;
+}
+input[type="submit"]:focus{
+	/*quitar borde*/
+outline: 0 none; 
+border: 0;
+background-color: hsla(207, 100%, 50%, 0.59);
 }
 label{
 	font-size: .9em;
 	font-weight: bold;
 }
 
+textarea::placeholder{
+	padding-top:0.5%;
+}
 
 
-
-@media screen and (max-width:900px){
+@media screen and (max-width:1024px){
 
 .solo{
 	width: 745px;
@@ -142,25 +152,29 @@ h1{
 	font-size: 1.7em;
 }
 p {
-	font-size: .9em;
+	font-size: .85em;
 }
 h2{
-	padding-top:7%;
+	padding-top:5%;
 	padding-left: 4%;
-	font-size: 1.4em;
+	font-size: 1.2em;
 }
 form{
-	padding-top:4%;
+	padding-top:3%;
 	padding-left: 4%;
 }
 input, textarea{
-	padding-top: 3.5%;
+	padding-top: 3%;
 	width: 95%;
 	margin-bottom: 5%;
 	-webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
     -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
 	box-sizing: border-box;
 }
+input[type="submit"]{
+	font-size: 10pt;
+}
+
 }
 
 
@@ -205,21 +219,21 @@ p {
 	padding-top: 4%;
 }
 h2{
-	padding-top:7%;
+	padding-top:6%;
 	padding-left: 4%;
 	font-size: 1.25em;
 }
 input, textarea{
-	padding-top: 4.5%;
+	padding:2%;
 	width: 95%;
-	margin-bottom: 5.5%;
+	margin-bottom: 5%;
 	-webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
     -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
 	box-sizing: border-box;
 }
 input[type="submit"]{
 	border-radius: 10px;
-	top:25%;
+	top:20s%;
 }
 label{
 	font-size: .9em;
@@ -258,7 +272,7 @@ h1{
 }
 
 p {
-	font-size: .9em;
+	font-size: .85em;
 }
 .puno{
 	padding-top: 4%;
@@ -267,24 +281,29 @@ p {
 	padding-top: 3%;
 }
 h2{
-	padding-top:6%;
+	padding-top:5%;
 	padding-left: 4%;
 	font-size: 1.1em;
 }
 input, textarea{
-	padding-top: 4%;
+	padding:2%;
 	width: 95%;
-	margin-bottom: 5%;
+	margin-bottom: 4%;
 	-webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
     -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
 	box-sizing: border-box;
 }
 input[type="submit"]{
 	border-radius: 10px;
-	top:25%;
+	top:18%;
+	font-size: 9pt;
+	width: 35%;
+	left: 60%;
+	margin-top: 8%;
+	padding: 6px;
 }
 label{
-	font-size: .9em;
+	font-size: .85em;
 }
 	}
 

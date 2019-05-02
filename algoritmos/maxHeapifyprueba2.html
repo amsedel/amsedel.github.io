@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Max Heapify prueba 2</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+	//var arr = [40,60,10,20,50,30];
+	var arr = [4,1,3,2,16,9,10,14,8,7];
+
+	var arrayLength=arr.length;
+	arr.unshift(0);
+	var arrOutput = new Array(arr.length).fill(0);
+	var value_smallest1;
+	var largest, value_smallest;
+
+	function maxHeapify(arr,  i){
+
+	 var l = 2*i; //izq
+	 var r = 2*i + 1; //der
+
+		 if(l<=arr.length && arr[l]>arr[i]){ //primero hacemos comparación con el supuesto padre con el hijo izquierdo
+	 		largest = l;
+	 		value_smallest1=arr[i];
+	 	}else{
+	 		largest= i;	
+	 		value_smallest1=arr[l];
+	 	}
+
+	 	if(r<=arr.length && arr[r]>arr[largest]){ //hacemos comparación con el supuesto padre con el hijo derecho
+	 		value_smallest = arr[largest];
+	 		largest = r;
+	 	}
+	 	if (largest!=i) {
+	 		arr[i]=arr[largest];
+	 		//arr[largest]=value_smallest1;
+
+	 		if(arr[largest]!=value_smallest1){
+	 			arr[largest]=value_smallest;
+	 		}else
+	 			arr[largest]=value_smallest1;
+	 		}
+	 			
+	 	}
+	 	
+	 	return arr;
+	 		}
+
+
+	// function builtMaxHeap(){
+	// 	for(var i = arrayLength/2; i>=1; i--){
+	// 		console.log('built' + maxHeapify(arr,i));
+	// 	}
+	// }
+
+
+
+</script>
+
+
+
+</body>
+</html>

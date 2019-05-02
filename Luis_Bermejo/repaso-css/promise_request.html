@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		function getReq(url){
+			const req = new Promise(function(resolve,reject){
+				const request = new XMLHttpRequest();
+				request.addEventListener('load',() =>{
+					console.log('en el listener de load...');
+					if(request.status===200){
+						resolve(request.response);
+					}else{
+						reject(request.statusText);
+					}
+				});
+
+
+				request.addEventListener('error', () => {
+					console.log('en el listener del error...');
+					reject("error de red");
+				});
+
+				request.open('GET',url,true);
+				request.send(null);
+			});
+
+			return req;
+		}
+
+		getReq('./persona.json')
+		.then(res =>{
+			return JSON.parse(res);
+		})
+		.then(json=>{
+			console.log(json);
+		})
+		.catch(error=>{
+			console.log(error);
+		});
+
+
+
+	</script>
+
+</body>
+</html>

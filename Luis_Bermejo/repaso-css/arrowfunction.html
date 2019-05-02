@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrow functions</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		// const pets = [{name:'lucho' , species:'dog'},
+		// 			  {name:'felix' , species:'cat'},
+		// 			  {name:'nemo' , species:'fish'}];
+
+		// var petNames = [];
+		// for(var i = 0; i<pets.length;i++){
+		// 	petNames.push(pets[i].name);
+		// }
+
+		// //template string
+		// console.log(`Pets names>> : ${petNames}`)
+		// console.log(`Pets template string A: ${5+5}`)
+		// console.log(`Pets template string B:${petNames.length>3?"ok":"cancel"}`);
+
+		// //Arrow function 
+		// const petNames2 = pets.map(animal => animal.name);
+
+		// //un objeto map puede iterar sobre sus elementos en orden de inserción
+
+		// console.log(`pet Names with map: ${petNames2}`);
+
+		(function(){})(); //funcion autoejecutable
+
+		var suma = (function(a,b){
+			return a+b;
+		})(1,2);
+
+		//callbacks
+
+		function ejemplofuncion(fnParam){
+			fnParam('beca');
+		}
+
+		ejemplofuncion(function(param2){
+		console.log(`hola ${param2}`); }); //hola
+
+
+		let promise1 = new Promise((resolve, reject) =>{
+			setTimeout(function(){
+				resolve("Resolucion correcta");
+			},2500);
+		});
+
+		promise1.then(mensaje =>{
+			console.log(`Mensaje de resolucion: ${mensaje}`);
+		});
+
+		let promise2 = new Promise((resolve, reject) =>{
+			setTimeout(function(){
+				reject("Done!");
+			},2500);
+		})
+		.then(function(e){console.log('done ',e);})
+		.catch(function(e){console.log('catch: ',e);})
+		console.log(promise2);
+
+
+		///json
+
+
+
+
+	</script>
+
+</body>
+</html>

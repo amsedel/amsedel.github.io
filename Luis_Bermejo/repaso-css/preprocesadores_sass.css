@@ -1,0 +1,79 @@
+/*VARIABLES*/
+
+$color_principal : #fff;
+$color_secundario : #2BA47D;
+$tamano_texto : 15px; 
+body{
+  color: $color_principal;
+  background: $color_secundario;
+  font-size : $tamano_texto;
+  }
+
+/*MIXINS*/
+
+@mixin open_sans_light($size){
+  font-family:'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: $size;
+}
+p{
+  @include open_sans_light(20px);
+}
+
+/*NESTING*/
+ul{
+  font-family: sans-serif;
+  background: #000;
+  color: #fff;
+  margin: 20px 0;
+  padding: 5px;
+  li{
+    margin: 5px;
+    padding: 10px;
+    background:#444;
+    a{
+      display:block;
+      color: inherit;
+      text-decoration:none;
+    }
+  }
+}
+
+/*CALCULOS*/
+
+$ancho_total:600px;
+$ancho_principal:400px;
+$calle: 20px;
+
+#contenedor{
+  width:$ancho_total;
+  background:#000;
+  padding:$calle;
+  font-family:Helvetica,Arial,sans-serif;
+  overflow:auto;
+}
+#principal{
+  float:left;
+  width:$ancho_principal;
+  background:#2BA47D;
+}
+#secundario{
+  float:right;
+  width: $ancho_total - $ancho_principal - $calle;
+  background: red;
+}
+/*HERENCIA*/
+.boton {
+  font-family: sans-serif;
+  border-radius: 3px;
+  padding: 8px;
+  display:inline-block;
+  text-decoration: none;
+  padding:10px;
+  color:#000;
+}
+
+.boton-importante{
+  @extend .boton;
+  background:#f00;
+}
