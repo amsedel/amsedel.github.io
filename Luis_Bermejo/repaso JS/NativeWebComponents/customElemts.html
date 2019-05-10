@@ -1,72 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>Custom Elements</title>
 </head>
 <body>
-<popup-info><popup-info/>
-	
+	<input type="button" name="view" id="view" class="view" value="Ver" onclick="evento();">
+	<!-- <popup-info id="txt" text="I like it" ><popup-info/> -->
+	<script src="js/customElements.js"></script>
+	<script>
 
-	<script type="text/javascript">
-		
-		class PopupInfo extends HTMLElement{
+		//var btn = document.getElementById("view");
 
-			constructor(){
-				super(); //siempre debe ser lo primero en llamarse y establecer la cadena de prototipo correcta
+		// var myEvent = new Event('myCustomEvent');
+		// this.addEventListener('myCustomEvent',eventoPersonalizado);		
 
-				//Dentro del constructor, definimos toda la funcionalidad que tendrá el elemento cuando se instancia una instancia de él. En este caso, adjuntamos una raíz de sombra al elemento personalizado
+		// function evento(){
+		// 	this.dispatchEvent(myEvent);
+		// }
 
-				//creamos el shadow root
-				var shadow =this.attachShadow({mode:'open'});
-
-				//creamos spans
-				var wrapper = document.createElement('span');
-				wrapper.setAttribute('class','wrapper');
-				var icon = document.createElement('span');
-				icon.setAttribute('class','icon');
-				//tabindex=0, significa que el elemento debe ser enfocado
-				icon.setAttribute('tabindex',0);
-				var info = document.createElement('span');
-				info.setAttribute('class','info');
-
-				//tomamos el atributo de contenido y ponemos dentro de el la información del span
-				var text = this.getAttribute('text');
-				info.textContent = text;
-
-				//insertar el ícono
-				var imgUrl;
-				if(this.hasAttribute('img')){
-					imgUrl = this.getAttribute('img');
-				}else{
-					imgUrl = 'img/default.png';
-				}
-
-				var img = document.createElement('img');
-				img.src = imgUrl;
-				icon.appendChild(img);
-
-				//Creamos algo de estilo y se lo aplicamos al shadow dom
-				var style = document.createElement('style');
-				style.textContent = '.wrapper{width:700px;background:gray;}';
-
-				//adjuntamos los elementos creados al shadow DOM
-
-				shadow.appendChild(style);
-				shadow.appendChild(wrapper);
-				wrapper.appendChild(icon);
-				wrapper.appendChild(info);
-			}
-
-		}
-
-		//registramos nuestro evento personalizado en el CustomElementRegistry uso del define()
-
-		customElements.define('popup-info', PopupInfo);
-
-
-
+		// function eventoPersonalizado(){
+		// 	var text = document.getElementById("txt");
+		// 	var mytext = prompt('Escribe un mensaje');
+		// 	console.log(mytext);
+		// 	text.setAttribute('text',mytext);
+		// 	var h = text.getAttributeNames();
+		// 	var l = text.getAttribute('text');
+		// 	console.log(l);
+		// }
 
 	</script>
+
+	
+
 
 </body>
 </html>

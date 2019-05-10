@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content='IE=edge'>
+	<title>Custom elements extendido</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		h1#mi-id{
+				margin-left: 20rem;
+				border:1px solid red;
+			}
+	</style>
+</head>
+<body>
+
+	<h1 id="mi-id">Externo</h1>
+	<template>
+
+		<style>
+			:host{
+				display: block;
+				border: 1px solid green;
+				margin-bottom: 2rem;
+			}
+
+			h1#mi-id{
+				margin-left: 1rem;
+				margin-right: 1rem;
+				border:1px solid green;
+			}
+		</style>
+
+		<h1 id="mi-id">Hola mi template</h1>
+		<p>¿Como estás?</p>
+	</template>
+
+	<mi-saludo></mi-saludo>
+	<mi-saludo></mi-saludo>
+	<mi-saludo></mi-saludo>
+	<mi-saludo></mi-saludo>
+
+
+	<script type="text/javascript">
+		
+		class MiSaludo extends HTMLElement{
+			constructor(){
+				super();
+				//obtengo la unica etiqueta template
+				const tpl = document.querySelector('template');
+				//clono su contenido y se crea una instancia del documento fragment
+				const tplInst = tpl.content.cloneNode(true);
+
+				//Se crea un shadow dom para las instancias de mi saludo
+
+				this.attachShadow({mode:'open'});
+				//y se agrega el template adentro del shadow dom usando el elemento raiz shadow root
+				this.shadowRoot.appendChild(tplInst);
+			}
+		}
+
+		//se registra el custom element para poder ser utilizado en el html o inmperativamente ene el HTML
+		customElements.define('mi-saludo',MiSaludo);
+
+
+
+	</script>
+
+</body>
+</html>

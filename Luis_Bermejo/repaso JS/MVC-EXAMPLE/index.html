@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ejemplo MVC</title>
+</head>
+<body>
+
+	<form id="contact_form" action="" method="post" name="contact_form">
+	<h1>Información de persona</h1>
+	<section>
+		<fieldset>
+			<legend>Sexo</legend>
+			<label for="sexo" class="etiqueta">Hombre</label>
+				<input type="radio"  name="sexo" id="sexo" >
+			<label for="sexo2" class="etiqueta">Mujer</label>
+				<input type="radio"  name="sexo" id="sexo2" >
+			<label for="sexo3">Otro</label>
+				<input type="radio"  name="sexo" id="sexo3" >
+			
+		</fieldset>
+
+		<section>
+			<h3>Información personal</h3>
+			<p>
+				<label for="nombre">Nombre</label>
+				<input type="text" id="nombre" name="nombre" required="">
+			</p>
+			<p>
+				<label for="email">Email
+					<input type="email" name="email" id="email" required="">
+				</label>
+			</p>
+			<p>
+				<label for="numero">Edad
+					<input type="number" name="edad" id="edad" >
+				</label>
+			</p>
+			<p>
+				<label for="telefono">Telefono
+					<input type="tel" name="telefono" id="telefono" placeholder="(555)-555-1234" required="" >
+				</label>
+			</p>
+			<p>
+				<label for="fecha-nacimiento">Fecha de nacimiento
+					<input type="date" name="fechaNacimiento" id="fechaNacimiento" >
+				</label>
+			</p>
+			<p>
+				<label for="color-favorito">Color
+					<input type="color" name="color" id="color" >
+				</label>
+			</p>
+		</section>
+
+			<p>
+				<button type="submit" onclick="MVC.controllerInst...">Guardar</button>
+			</p>
+	</section>
+</form>
+	<script type="text/javascript">		
+		//variable global de proyecto como lo hace jquery
+		var MVC = {}; 
+	</script>
+	<script type="text/javascript" src="./js/controller.js"></script>
+	<script type="text/javascript" src="./js/model.js"></script>
+	<script type="text/javascript" src="./js/view.js"></script>
+	<script type="text/javascript" src="./main.js"></script>
+	<script type="text/javascript">
+		
+		var radio = document.getElementById('sexo');
+
+		if(radio.value){
+			radio.setAttribute('checked','checked');
+		}
+	</script>
+
+
+
+</body>
+</html>

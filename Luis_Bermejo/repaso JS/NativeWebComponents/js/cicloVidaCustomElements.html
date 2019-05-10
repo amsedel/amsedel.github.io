@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ciclo de vida Custom elements</title>
+	<style type="text/css">
+		@charset "utf-8";
+		mi-mensaje{
+			display: block;
+			padding: 10px;
+			border: 5px solid black;
+			margin-bottom: 10px;
+		}
+		mi-mensaje[casi-visible]{
+			border: none;
+		}
+	</style>
+</head>
+<body>
+
+	<mi-mensaje msj="Hola, soy un mensaje"> aqui</mi-mensaje>
+
+	<mi-mensaje casi-visible msj="Hola, soy un mensaje casi visible"></mi-mensaje>
+
+
+
+
+	<script type="text/javascript">
+			
+		class MiMensaje extends HTMLElement	{
+
+			constructor(){
+				super();
+
+				this.addEventListener('click', function(e){
+				alert('Click en mensaje');
+			});
+
+				console.log('constructor cuando ele elemento es creado');
+			}
+
+				static get observerAttributes(){
+					return['msj', 'casi-visible'];
+				}
+
+				get msj(){
+					return this.getAttribute('msj');
+				}
+
+				set msj(val){
+					this.setAttribute('msj', val);
+				}
+
+				get casiVisible(){
+					return this.hasAttribute('casi-visible');
+				}
+
+				set casiVisible(value){
+
+					if(value){
+						this.setAttribute('casi-visible', '');
+					}else{
+						this.removeAttribute('casi-visible');
+					}
+				}
+
+				setCasiVisible(){
+					if(this.casiVisible){
+					}else{
+						this.style.opacity = 1;
+					}
+				}
+
+				connectedCallback(){
+					console.log('connectedCallback: Cuando el documento se inserta al documento');
+				}
+
+				disconnectedCallback(){
+					alert('disconnected: cuando el elemento se ha eliminado del documento');
+				}
+
+				addoptedCallback(){
+					alert('addoptedCallback: cuando el elemento es adoptado por otro documento')
+				}
+				//cuando un atributo es modificado, solo llamado en atributos observados
+				//definidos en la propiedad observedAttributes
+				attributeChangedCallback(attrName, oldVal, newVal){
+					console.log('attributeChangedCallback: cuando cambia un atributo');
+					if(attrName ==='msj'){
+						this.pintarMensaje(newVal);
+					}
+					if(attrName ==='casi-visible'){
+						this.setCasiVisible();
+					}
+				}
+				//pintar el mensaje que se declara dentro en el atributo msj
+				pintarMensaje(msj){
+					this.innerHTML =msj;
+				}
+
+
+
+		}
+
+		customElements.define('mi-mensaje',MiMensaje);
+
+		let miMensaje = document.createElement('mi-mensaje');
+		miMensaje.msj ="Otro Mensaje";
+		document.body.appendChild(miMensaje);
+
+
+		//tambien se puede crear en el operador new
+		let tercerMensaje = new MiMensaje();
+		tercerMensaje.msj = 'tercerMensaje';
+		document.body.appendChild(tercerMensaje);
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

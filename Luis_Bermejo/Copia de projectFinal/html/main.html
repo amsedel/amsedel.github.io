@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Principal</title>
+	<!-- <link rel="stylesheet" type="text/css" href="./css/main.css"> -->
+	<style type="text/css">
+		
+
+table{
+	border: 1px solid black;
+	text-align: center;
+	border-spacing: 0px;
+}
+
+th,td{
+	padding: 0px 12px;
+	
+
+}
+	</style>
+</head>
+<body>
+
+<!--Insertar articulos-->
+<article id="register">
+	<section id="registerPush">
+		<p id="prueba">Deseas registrar un nuevo artículo?</p>
+		<input type="button" name="registrar" id="registrar" value="Registrar" onclick="registrar();">
+	</section>
+</article>
+
+
+<article id="readView">
+	<header>
+	<section>
+	<h2 id="tituloRead"></h2>
+	<h4 id="palabrasClaveRead"></h4>
+	</section>
+	</header>
+	<main>
+	<p id="contenidoRead"></p>
+	</main>
+	<footer>
+	<h3 id="autorRead"></h3>
+	</footer>
+</article>
+
+<article>
+	<section>
+		<input type="button" name="delete" id="delete" value="Eliminar Articulos" onclick="deletedMain();">
+	</section>
+</article>
+
+<article id="read">
+<!--Listado general READ-->
+	<section id="readSearch">
+			<input type="text" name="busqueda" placeholder="Búsqueda por autor o título" id="buscartext">
+			<input type="image" src="img/buscar.png" alt="Buscar" 	width="35px" onclick="search();" id="buscarbtn">
+	</section>
+	<section id="readViewTable">
+		<div>
+		<h2>Tus artículos ...</h2>
+		<table border id="tabla_lista_general">
+		<thead>
+			<tr>
+			<th>Titulo</th>
+			<th>Autor</th>
+			<th>Contenido</th>
+			<th>Palabras clave</th>
+			</tr>
+		</thead>
+			<tbody id="cuerpo" class="cuerpo">
+				<tr id="trs"></tr>
+			</tbody>
+	</table>
+		
+	</section>
+</article>
+
+
+	<script type="text/javascript">		
+		//variable global de proyecto 
+		var MVC = {}; 
+	</script>
+	<script type="text/javascript" src="./js/controller.js"></script>
+	<script type="text/javascript" src="./js/model.js"></script>
+	<script type="text/javascript" src="./js/view.js"></script>
+	<script type="text/javascript" src="./main.js"></script> 
+
+
+</body>
+</html>

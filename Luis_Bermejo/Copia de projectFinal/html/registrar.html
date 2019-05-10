@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Registro de artículos</title>
+</head>
+<style type="text/css">
+		*{
+			margin: 0 auto;
+		}
+
+		body{
+			/*background: url(../img/mountain1.jpg) #888;*/
+			background: gray;
+			/*background-size: cover;*/
+			color: #fff;
+			margin-right:auto;
+			margin-left:auto;
+		}
+
+		div{
+			width: 400px;
+			height: 500px;
+			background-color: rgba(153, 184, 181, 0.55);
+			border: 6px solid rgb(187 217 209);
+			border-radius: 30px;
+
+			margin-left: auto;
+			margin-right: auto;
+			left:0;
+			right:0;
+			margin-top: auto;
+			margin-bottom: auto;
+			top:0;
+			bottom:0;
+			position: absolute;
+		}
+
+		form{
+			text-align:center;
+			padding: 20%;
+		}
+		input{
+			margin-bottom: 6%;
+			display: block;
+		}
+		label{
+		font-size: 1.2em;
+		font-weight: bold;
+		}
+</style>
+<body>
+
+<article>
+	<p id="mensaje"></p>
+	<div>
+	<form id="registro_form">
+		<label for="titulo">Título</label>
+		<input type="text" name="titulo" id="titulo">
+		<label for="autor">Autor</label>
+		<input type="text" name="autor" id="autor">
+		<label for="articulo">Artículo</label>
+		<textarea name="articulo" id="articulo"  spellcheck="true" class="articulo" placeholder="Tu articulo"></textarea>
+		<label for="palabras_clave">Palabras clave</label>
+		<input type="text" name="palabras_clave" id="palabras_clave">
+		<input type="button" name="registrar" id="registrar" value="Registrar" onclick="consultaTitulo();" >
+	</form>
+	</div>
+</article>
+
+<script type="text/javascript">
+
+	//var jsonDatos= {};
+	//var endpoint = 'http://localhost:8080/api/articulos';
+	//var registro_form = document.getElementById('registro_form');
+	//var titulo, autor, articulo, palabras_clave, msn;
+
+/*
+	function registrarArticulo(){	
+
+		fetch(endpoint,{
+			method: 'POST',
+			headers: {
+				'Content-Type':'application/json'
+			},
+			body: JSON.stringify({"titulo":titulo, "autor":autor, "contenido": articulo, "palabras_clave":palabras_clave})
+		})
+		.then(function(response){
+			return response.json();
+		})
+		.then(function(data){
+			console.log(data);
+		})
+		.catch(function(err){
+			console.log(err);
+		});
+
+		console.log(titulo, autor, articulo, palabras_clave);
+
+	}*/
+
+	// function consultaTitulo(){
+
+	// 		fetch(endpoint)
+	// 		.then(resp => {
+	// 			if(resp.ok) {
+	// 				//console.log(resp);
+	// 				return resp.json();
+	// 			}
+	// 			return Error("No se pudieron obtener los datos")
+	// 		})
+	// 		.then(data => {
+	// 			//console.log(data);
+	// 			validaTitulo(data);
+	// 			return data;
+	// 		})
+	// }
+/*
+	function validaTitulo(datos){
+
+		// titulo = document.getElementById('titulo').value;
+		// autor = document.getElementById('autor').value;
+		// articulo = document.getElementById('articulo').value;
+		// palabras_clave = document.getElementById('palabras_clave').value;
+
+		// var n = datos.filter((dato) => { return dato.titulo == titulo });
+
+		 if(n.length===0){
+		 	registrarArticulo();
+		 	msn.textContent ="";
+		 	alert('Tu registro se realizó Exitosamente');
+			registro_form.titulo.value =" ";
+			registro_form.autor.value =" ";
+			registro_form.articulo.value =" ";
+			registro_form.palabras_clave.value =" ";
+
+			var preguntaContinuar = confirm("¿Desea guardar un nuevo artículo?");
+			if(preguntaContinuar===false){
+				window.location="http://127.0.0.1:8887/main.html";
+			}
+
+		 }else if(n.length===1){
+
+		 	var preguntaActualizar = confirm("Este título ya existe, ¿Desea actualizar el artículo?");
+		 	if(preguntaActualizar){
+		 		window.location="http://127.0.0.1:8887/actualizar.html";
+		 		//manda los datos del artículo que existe
+		 	}else{
+		 		msn = document.getElementById('mensaje');
+		 		msn.textContent = 'Porfavor modifica el título del artículo para poder guardarlo';
+		 	}
+
+		 }
+
+
+	}*/
+
+
+</script>
+	<script type="text/javascript">		
+		//variable global de proyecto como lo hace jquery
+		var MVC = {}; 
+	</script>
+	<script type="text/javascript" src="./js/controller.js"></script>
+	<script type="text/javascript" src="./js/model.js"></script>
+	<script type="text/javascript" src="./js/view.js"></script>
+	<script type="text/javascript" src="./main.js"></script> 
+
+</body>
+</html>

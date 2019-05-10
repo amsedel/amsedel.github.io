@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		//Clase
+		function Forma(id){
+			this.id = id;
+		}
+
+		//metodos de clase
+		Forma.prototype.gritar = function(){
+			console.log('Yep!')
+		}
+
+		//subclase
+
+		function Cuadrado(id,ladoA, ladoB, ladoC, ladoD){
+			Forma.call(this.id);
+			this.ladoA = ladoA;
+			this.ladoB = ladoB;
+			this.ladoC = ladoC;
+			this.ladoD = ladoD;
+		}
+
+		//referencia prototipo parent
+
+		Cuadrado.prototype = Object.create(Forma.prototype);
+
+		//método cuadrado
+
+		Cuadrado.prototype.getLados = function(){
+			return [this.ladoA, this.ladoB, this.ladoC, this.ladoD];
+		}
+
+		const instanciaCuadrado = new Cuadrado(1001,10,10,10,10);
+		console.log(instanciaCuadrado);
+		console.log(instanciaCuadrado.getLados());
+		instanciaCuadrado.gritar();
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>LifeCicle CallBacks</title>
+	<style type="text/css">
+		custom-square{
+			display: inline-block;
+			position: relative;
+			top: 50px;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" name="addC" id="addC" value="Añadir" onclick="anadirCuadro();">
+	<br>
+	<input type="button" name="deleteC" id="deleteC" value="Eliminar" onclick="removerCuadro();">
+	<input type="button" name="updateC" id="updateC" value="Actualizar" onclick="actualizarCuadro();">
+	<br>
+	<label for="lado">lado:</label>
+	<input type="text" name="lado" id="lado" class="lado">
+	<label for="color">Color:</label>
+	<input type="color" name="color" id="color" class="color">
+	<input type="button" name="enviar" id="enviar" class="enviar" value="Enviar valores" onclick="enviarValores();">
+	<!--<custom-square l="100" c='blue'></custom-square>-->
+	<script src="js/lifeCycleCallbacks.js"></script>
+
+	<script>
+
+		var lado=document.getElementById('lado');
+		var color=document.getElementById('color');
+		var ev=document.getElementById('enviar');
+		var eliminar=document.getElementById('deleteC');
+		var actualizar=document.getElementById('updateC');
+		var count = 0;
+		var myCuadro;
+		var myCa;
+		eliminar.disabled=true;
+		actualizar.disabled=true;
+		lado.disabled=true;
+		color.disabled=true;
+		ev.disabled=true;
+
+		this.addEventListener('removerC',eliminarC);
+
+
+
+		function removerCuadro(){
+			this.dispatchEvent(new Event('removerC'));
+		}
+
+		function eliminarC(){
+			var myC=document.querySelector('custom-square');
+			console.log(myC);
+			myC.remove();
+		}
+	
+		function anadirCuadro(){
+		count++;
+		eliminar.disabled=false;
+		actualizar.disabled=false;
+		myCa = document.createElement('custom-square');
+		myCa.setAttribute('l', '100');
+		myCa.setAttribute('c', 'blue');
+		myCa.setAttribute('id', `c${count}`);
+		myCa.setAttribute('onclick', `act(c${count});`);
+		document.body.appendChild(myCa);
+		}
+
+		function actualizarCuadro(){
+		lado.disabled=false;
+		color.disabled=false;
+		ev.disabled=false;
+		console.log(myCuadro);
+
+		}
+
+		function enviarValores(){
+		var myC=document.querySelector('custom-square');
+		console.log(myCuadro);
+		myCuadro.setAttribute('l', lado.value);
+		myCuadro.setAttribute('c', color.value);
+		}
+		
+		function act(e){
+		lado.disabled=false;
+		color.disabled=false;
+		ev.disabled=false;
+		myCuadro = e;	
+		}
+
+	
+	</script>
+
+</body>
+</html>

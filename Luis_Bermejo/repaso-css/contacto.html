@@ -46,11 +46,13 @@
 		console.log(nom,tel,email,msn);
 
 		 var request = new XMLHttpRequest();   // instancia del tipo xmlhttprequest
-		 var url = 'http://localhost:8080/api/contactos';
+		  var url = 'http://localhost:8080/api/contactos';
 		 request.open("POST", url, true);
 		 request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		 request.send(JSON.stringify({ "nombre": nom, "telefono": tel, "correo": email, "mensaje" : msn})); 
 		 //envía los datos en el cuerpo del mensaje
+
+
 
 		formulario.nombre.value="";
 		formulario.tel.value="";

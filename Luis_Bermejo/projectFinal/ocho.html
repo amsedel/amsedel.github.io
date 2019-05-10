@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tabla</title>
+</head>
+<body>
+
+	<h1>Información sobre el producto</h1>
+	<section>
+		<fieldset>
+			<legend>Datos básicos</legend>
+			<br>
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" required="">
+			<br>
+			<br>
+			<label for="descripcion">Descripción</label>
+			<br>
+			<textarea name="comment" rows=5 cols=40></textarea>
+			<br><br>
+			<label>Foto</label>
+			<input type="button" name="btn" value="Seleccionar archivo">
+			<label>nada seleccionado</label>
+			<br><br>
+			<input type="checkbox" name="check">
+			<label>Añadir contador de visitas</label>
+		</fieldset>
+		<fieldset>
+			<legend>Datos económicos</legend>
+			<label>Precio</label>
+			<input type="text" name="precio">¢ 
+			<label> Impuestos</label>
+			<input type="Number" name="" min="0" max="100">
+			<br><br>
+			<label>Promoción</label>
+			<br>
+			<input type="radio" name="promocion">Ninguno
+			<br>
+			<input type="radio" name="promocion">Transporte Gratuito
+			<br>
+			<input type="radio" name="promocion">Descuento 5%
+		</fieldset>
+	</section>
+	<br><br>
+	<hr>
+	<br><br>
+	<section>
+		<caption>Análisis de ventas anuales</caption>
+
+		<table border=1 cellspacing=0 cellpadding=3 bordercolor="666633" id="miTabla"
+				data-anios = "4"
+				data-numproductos= "4"
+				data-nombresproductos = "Producto A, Producto B, Producto C, Producto D"
+				data-titulotabla = "Expansión de ventas">
+
+			<thead>
+			<tr>
+			<th rowspan="2">Año</th>
+			<th colspan="4" align="center">Expansión de ventas</th>
+			</tr>
+			<th>Producto A</th>
+			<th>Producto B</th>
+			<th>Producto C</th>
+			<th>Producto D</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td align="center">N-3</td>
+				<td align="center">-</td>
+				<td align="center">-</td>
+				<td align="center">-</td>
+				<td align="center">-</td>
+			</tr>
+			<tr>
+				<td>N-2</td>
+				<td align="center">3</td>
+				<td align="center">5</td>
+				<td align="center">8</td>
+				<td align="center">4</td>
+			</tr>
+			<tr>
+				<td align="center">N-1</td>
+				<td align="center">4</td>
+				<td align="center">4</td>
+				<td align="center">7</td>
+				<td align="center">3</td>
+			</tr>
+			<tr>
+				<td align="center">N</td>
+				<td align="center">5</td>
+				<td align="center">7</td>
+				<td align="center">6</td>
+				<td align="center">2</td>
+			</tr>
+			</tbody>
+			<tfoot>
+			<tr>
+			<td rowspan="2">Año</td>
+			<td >Producto A</td>
+			<td >Producto B</td>
+			<td >Producto C</td>
+			<td >Producto D</td>
+			</tr>
+			<tr><td colspan="4" align="center">Expansión de ventas</td></tr>
+			</tfoot>
+		</table>
+
+	</section>
+
+	<script>
+		
+		var tablaAnios = document.getElementById('miTabla').dataset.anios;
+		var tablaNumProductos = document.getElementById('miTabla').dataset.numproductos;
+		var tablaNameProductos = document.getElementById('miTabla').dataset.nombresproductos;
+		var tablaTitle = document.getElementById('miTabla').dataset.titulotabla;
+
+		console.log(tablaAnios);
+		console.log(tablaNumProductos);
+		console.log(tablaNameProductos);
+		console.log(tablaTitle);
+
+	</script>
+
+</body>
+</html>

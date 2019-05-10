@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prototipos</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+function Polygon(height, width){
+	this.height = height;
+	this.width = width;
+}
+
+
+function Square(side){
+	this.prototype = Object.create(Polygon.prototype);
+	Polygon.call(this,side,side);
+
+	this.getArea = function(){
+		return this.height*this.width;
+	}
+}
+
+var square = new Square(5);
+//debe imprimir 25
+console.log(square.getArea());
+
+</script>
+
+</body>
+</html>

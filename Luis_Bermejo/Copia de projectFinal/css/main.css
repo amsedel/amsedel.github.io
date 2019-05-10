@@ -1,0 +1,27 @@
+
+table{
+	border: 1px solid black;
+	text-align: center;
+	border-spacing: 0px;
+}
+
+th,td{
+	padding: 0px 12px;
+	
+
+}
+/*
+td{
+	background-color: #f8f8f8;
+}
+
+thead{
+	background-color: lightblue;
+	font-weight: bold;
+}
+
+tfoot td{
+	background-color: lightgreen;
+	font-weight: bold;
+}
+*/

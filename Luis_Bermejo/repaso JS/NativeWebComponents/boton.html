@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="'IE=edge">
+	<title>Boton custom element</title>
+	<meta name="viewport" content="width=device-width initial-scale=1">
+	<style type="text/css">
+		mi-boton, mi-boton2{
+			padding: 10px;
+			border: 5px solid green;
+		}
+
+		button [is='mi-boton-extendido']{
+			padding: 10px;
+			border: 5px solid blue;
+		}
+
+
+	</style>
+</head>
+<body>
+	<p>CustomElement</p>
+	<mi-boton>Soy un mi-boton</mi-boton>
+	<mi-boton2>Soy boton 2</mi-boton2>
+	<p>Custom element extendido</p>
+	<button is='mi-boton-extendido'>Soy mi boton extendido</button>
+	<div id="container"></div>
+
+
+
+
+	<script type="text/javascript">
+
+		
+
+
+class MiBoton extends HTMLElement{
+
+constructor(){
+super();
+this.addEventListener('click', function(e){
+	alert('hola');
+});
+
+}
+
+
+}
+
+
+customElements.define('mi-boton', MiBoton);
+
+
+
+//la segunda forma es con la clase anónima 
+
+
+customElements.define('mi-boton2', class extends HTMLElement{
+	constructor(){
+		super();
+		this.addEventListener('click', function(e){
+alert('Hola soy el boton 2')
+		});
+	}
+})
+
+
+class MiBotonExtendido extends HTMLButtonElement{
+
+constructor(){
+super();
+this.addEventListener('click', function(e){
+	console.log('evento click: ' + this.innerHTML);
+	alert('Mi botón Extendido');
+});
+
+}
+
+static get ceName(){
+	return 'mi-boton-extendido';
+}
+
+get is(){
+	return this.getAttribute('is');
+}
+
+set is (value){
+	this.setAttribute('is', value || this.ceName);
+}
+
+}
+
+customElements.define('mi-boton-extendido', MiBotonExtendido, {extends:'button'});
+
+
+	</script>
+
+</body>
+</html>

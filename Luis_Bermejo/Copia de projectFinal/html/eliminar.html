@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Eliminar</title>
+</head>
+<body>
+
+	<article>
+		<section id="eliminar_form">
+			<label >¿Que título desea eliminar?</label>
+			<input type="text" name="eliminarText" placeholder="Búsqueda título" id="eliminarText">
+			<input type="image" src="img/buscar.png" alt="Buscar" 	width="35px" onclick="searchDelete();" id="buscarbtnEliminar">
+	</section>
+	</article>
+
+	<article id="readDelete">
+	<header>
+	<section>
+	<h2 id="tituloDelete"></h2>
+	<h4 id="palabrasClaveDelete"></h4>
+	</section>
+	</header>
+	<main>
+	<p id="contenidoDelete"></p>
+	</main>
+	<footer>
+	<h3 id="autorDelete"></h3>
+	</footer>
+	<section id="eliminarbtn">
+		<p>¿Desea eliminar el componente?</p>
+		<input type="button" name="" value="Confirmar eliminación" id="confirmDelete" onclick="confirmDelete();">
+	</section>
+	</article>
+
+	<script type="text/javascript">		
+		//variable global de proyecto 
+		var MVC = {}; 
+	</script>	
+	<script type="text/javascript" src="./js/controller.js"></script>
+	<script type="text/javascript" src="./js/model.js"></script>
+	<script type="text/javascript" src="./js/view.js"></script>
+	<script type="text/javascript" src="./main.js"></script> 
+
+</body>
+</html>
