@@ -23,15 +23,13 @@ MVC.Controller = class Controller{
 
 	getData(){
 	//llamamos al método getUsuario alojada en la clase Model
-
 		this.model.getUsuario() 
 		.then(data => {
-		//console.log(data);
 	//llamamos al método notify alojada en la clase view
 	//notificamos a la vista si se encontraron los datos
 			this.view.notify(data);
 		})
-		.catch(console.log('error'));
+		.catch(console.log);
 	}
 
 

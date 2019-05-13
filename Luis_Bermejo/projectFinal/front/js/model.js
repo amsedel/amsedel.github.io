@@ -13,13 +13,13 @@ MVC.Model = class Model {
 		return fetch(`${this.endpoint}`)
 		.then(resp => {
 			if(resp.ok) {
-				console.log(resp);
+				//console.log(resp);
 				return resp.json();
 			}
 			return Error("No se pudieron obtener los datos")
 		})
 		.then(data => {
-			//console.log(data);
+			console.log(data);
 			this.setModelo(data);
 			return data;
 		})
